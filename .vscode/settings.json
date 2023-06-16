@@ -1,0 +1,30 @@
+{
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	},
+	"eslint.validate": [
+		"javascript",
+		"javascriptreact",
+		"typescript",
+		"typescriptreact"
+	],
+	"workbench.colorCustomizations": {
+		"activityBar.activeBackground": "#24d9a9",
+		"activityBar.background": "#24d9a9",
+		"activityBar.foreground": "#364743",
+		"activityBar.inactiveForeground": "#15202b99",
+		"activityBarBadge.background": "#b540df",
+		"activityBarBadge.foreground": "#e7e7e7",
+		"commandCenter.border": "#e7e7e799",
+		"sash.hoverBorder": "#24d9a9",
+		"statusBar.background": "#b540df",
+		"statusBar.foreground": "#e7e7e7",
+		"statusBarItem.hoverBackground": "#24d9a9",
+		"statusBarItem.remoteBackground": "#1dad87",
+		"statusBarItem.remoteForeground": "#e7e7e7",
+		"titleBar.activeBackground": "#1dad87",
+		"titleBar.activeForeground": "#e7e7e7",
+		"titleBar.inactiveBackground": "#1dad8799",
+		"titleBar.inactiveForeground": "#e7e7e799"
+	}
+}
