@@ -1,7 +1,10 @@
+import Navbar from "@/components/Navbar";
 import "./globals.css";
-import { Inter } from "next/font/google";
+// eslint-disable-next-line camelcase
+import { Work_Sans } from "next/font/google";
+import StyledComponentsRegistry from "@/utils/StyledComponentsRegistry";
 
-const inter = Inter({ subsets: ["latin"] });
+const WS = Work_Sans({ subsets: ["latin"] });
 
 export const metadata = {
 	title: "Jacob Klarén",
@@ -16,7 +19,12 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className={inter.className}>{children}</body>
+			<body className={WS.className}>
+				<StyledComponentsRegistry>
+					<Navbar />
+					{children}
+				</StyledComponentsRegistry>
+			</body>
 		</html>
 	);
 }
