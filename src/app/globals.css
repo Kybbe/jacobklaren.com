@@ -1,19 +1,21 @@
 :root {
   --max-width: 1100px;
+  --navbar-height: 3em;
   --border-radius: 1em;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
-
-  --background: #f8f8f8;
-  --text: #333;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #242424;
-    --text: #f8f8f8;
-  }
+body {
+  --background: 237, 235, 233;
+  --text: 12, 12, 12;
+
+  --accent: 115, 47, 183;
+}
+
+body.dark {
+  --background: 12, 12, 12;
+  --text: 245, 245, 245;
+
+  --accent: 145, 77, 214;
 }
 
 * {
@@ -29,8 +31,11 @@ body {
 }
 
 body {
-  color: var(--text);
-  background: var(--background);
+  color: rgb(var(--text));
+  background: rgb(var(--background));
+  min-height: 100dvh;
+
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 a {
@@ -40,6 +45,20 @@ a {
   &:hover {
     text-decoration: underline;
   }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 @media (prefers-color-scheme: dark) {
