@@ -96,10 +96,14 @@ const Title = styled.h1`
 	@media (min-width: 900px) {
 		font-size: 3em;
 		margin-bottom: 0.5em;
+
+		&:hover {
+			font-size: 3.1em;
+		}
 	}
 
 	&:hover {
-		font-size: 3.2em;
+		font-size: 2.6em;
 	}
 `;
 
@@ -116,10 +120,14 @@ const Subtitle = styled.h2`
 
 	@media (min-width: 900px) {
 		font-size: 2em;
+
+		&:hover {
+			font-size: 2.1em;
+		}
 	}
 
 	&:hover {
-		font-size: 2.2em;
+		font-size: 1.6em;
 	}
 `;
 
