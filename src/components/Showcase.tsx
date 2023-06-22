@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { styled } from "styled-components";
+import styled from "styled-components";
 
 interface Props {
 	title: string;
@@ -246,13 +246,13 @@ const UL = styled.ul`
 		//the first 3 element should have accent color as background
 		&:nth-child(-n + 3) {
 			background-color: rgb(var(--accent));
-			color: rgb(var(--text));
+			color: white;
 			font-weight: 700;
 		}
 
 		&:hover {
 			background-color: rgb(var(--accent));
-			color: rgb(var(--text));
+			color: white;
 			font-weight: 800;
 			transform: scale(1.2);
 		}
