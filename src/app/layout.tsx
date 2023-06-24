@@ -3,6 +3,8 @@ import "./globals.css";
 // eslint-disable-next-line camelcase
 import { Work_Sans } from "next/font/google";
 import StyledComponentsRegistry from "@/utils/StyledComponentsRegistry";
+import MouseFollow from "@/components/MouseFollow";
+import { Providers } from "@/utils/ProviderFactory";
 
 const WS = Work_Sans({ subsets: ["latin"] });
 
@@ -21,8 +23,11 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={WS.className}>
 				<StyledComponentsRegistry>
-					<Navbar />
-					{children}
+					<Providers>
+						<Navbar />
+						<MouseFollow />
+						{children}
+					</Providers>
 				</StyledComponentsRegistry>
 			</body>
 		</html>
