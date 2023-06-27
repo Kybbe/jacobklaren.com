@@ -98,7 +98,7 @@ const Title = styled.h1`
 		margin-bottom: 0.5em;
 
 		&:hover {
-			font-size: 3.1em;
+			font-size: 3.1em !important;
 		}
 	}
 
@@ -122,7 +122,7 @@ const Subtitle = styled.h2`
 		font-size: 2em;
 
 		&:hover {
-			font-size: 2.1em;
+			font-size: 2.1em !important;
 		}
 	}
 
