@@ -6,7 +6,7 @@ import styled from "styled-components";
 import Drawer from "react-modern-drawer";
 import { useAppSelector } from "@/hooks/redux/useAppSelector";
 import ThemeSwitcher from "./ThemeSwitcher";
-import SpinningLetterWords from "./SpinningLetterWords";
+import SpinningLetterWords from "../SpinningLetterWords";
 import "react-modern-drawer/dist/index.css";
 import DrawerButton from "./DrawerButton";
 

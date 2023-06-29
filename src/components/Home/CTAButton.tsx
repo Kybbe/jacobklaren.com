@@ -1,14 +1,15 @@
+import Link from "next/link";
 import styled from "styled-components";
 
 export default function CTAButon() {
 	return (
 		<div>
-			<Button type="button">Contact me</Button>
+			<StyledLink href="/contact">Contact me</StyledLink>
 		</div>
 	);
 }
 
-const Button = styled.button`
+const StyledLink = styled(Link)`
 	background-color: transparent;
 	border: 2px solid rgb(var(--accent));
 	border-radius: var(--border-radius);

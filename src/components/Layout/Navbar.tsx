@@ -3,7 +3,7 @@
 import Link from "next/link";
 import styled from "styled-components";
 import ThemeSwitcher from "./ThemeSwitcher";
-import SpinningLetterWords from "./SpinningLetterWords";
+import SpinningLetterWords from "../SpinningLetterWords";
 import "react-modern-drawer/dist/index.css";
 import DrawerNavbar from "./DrawerNavbar";
 
@@ -74,6 +74,8 @@ const Nav = styled.nav`
 	position: fixed;
 	top: 0;
 	z-index: 100;
+
+	height: var(--navbar-height);
 
 	> .themeswitcher {
 		position: absolute;
