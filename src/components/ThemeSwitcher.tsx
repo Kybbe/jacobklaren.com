@@ -1,20 +1,26 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useAppDispatch } from "@/hooks/redux/useAppDispatch";
+import { useAppSelector } from "@/hooks/redux/useAppSelector";
+import { setTheme, toggleTheme } from "@/store/slices/uiSlice";
+import { useEffect } from "react";
 import styled from "styled-components";
 
 export default function ThemeSwitcher() {
-	const [theme, setTheme] = useState("");
+	const theme = useAppSelector(state => state.ui.theme);
+
+	const dispatch = useAppDispatch();
 
 	function switchTheme() {
 		document.body.classList.toggle("dark");
-		setTheme(theme === "dark" ? "light" : "dark");
+
+		dispatch(toggleTheme());
 	}
 
 	function checkPrefersColorScheme() {
 		if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
 			document.body.classList.add("dark");
-			setTheme("dark");
+			dispatch(setTheme("dark"));
 		}
 	}
 
