@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/Layout/Navbar";
 import "./globals.css";
 // eslint-disable-next-line camelcase
 import { Work_Sans } from "next/font/google";
