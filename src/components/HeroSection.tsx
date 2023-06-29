@@ -24,7 +24,7 @@ export default function HeroSection() {
 				<CTAButton />
 			</Col>
 
-			<Col>
+			<Col className="imageContainerCol">
 				<StyledImage
 					src="/images/hero.webp"
 					width="500"
@@ -70,7 +70,7 @@ const Row = styled.div`
 
 	@media (min-width: 900px) {
 		flex-direction: row;
-		justify-content: space-between;
+		justify-content: space-evenly;
 	}
 `;
 
@@ -82,6 +82,10 @@ const Col = styled.div`
 
 	@media (min-width: 900px) {
 		gap: 1em;
+
+		&.imageContainerCol {
+			width: 40%;
+		}
 	}
 `;
 
@@ -150,6 +154,7 @@ const StyledImage = styled(Image)`
 	@media (min-width: 900px) {
 		padding: 1em;
 		height: auto;
+		width: 100%;
 	}
 `;
 

@@ -10,7 +10,7 @@ export default function Home() {
 
 			<Showcase
 				title="Scouterna"
-				description="Scouterna är en demokratisk barn- och ungdomsorganisation som bygger på scoutmetoden. Scouterna är partipolitiskt och religiöst obundna och välkomnar alla som kan ställa sig bakom vår värdegrund."
+				description="The Scouts are a democratic children's and youth organization based on the scout method. The Scouts are non-religious and welcome everyone who can stand behind their core values."
 				image="/images/scouterna.webp"
 				content="Scouterna är en demokratisk barn- och ungdomsorganisation som bygger på scoutmetoden. Scouterna är partipolitiskt och religiöst obundna och välkomnar alla som kan ställa sig bakom vår värdegrund."
 				technologies={[
@@ -43,8 +43,8 @@ export default function Home() {
 			/>
 			<Showcase
 				title="Mimbly"
-				description="Mimbly är Ett företag inom cleantech från Göteborg. Från och med 2023 utformar och lanserar Mimbly sina tvättinnovationer i Göteborg, Sverige. Deras prestationer under åren är det som driver dem från startup till scaleup."
-				content="Mimbly är Ett företag inom cleantech från Göteborg. Från och med 2023 utformar och lanserar Mimbly sina tvättinnovationer i Göteborg, Sverige. Deras prestationer under åren är det som driver dem från startup till scaleup."
+				description="Mimbly is a cleantech company from Gothenburg. Starting in 2023, Mimbly designs and launches its laundry innovations in Gothenburg, Sweden. Their achievements over the years are what propels them from startup to scaleup."
+				content="Mimbly is a cleantech company from Gothenburg. Starting in 2023, Mimbly designs and launches its laundry innovations in Gothenburg, Sweden. Their achievements over the years are what propels them from startup to scaleup."
 				image="/images/mimbly.webp"
 				technologies={[
 					"React",
@@ -69,8 +69,10 @@ export default function Home() {
 			/>
 			<Showcase
 				title="FrontedgeIT.se"
-				description="FrontedgeIT är ett IT-konsultbolag som erbjuder konsulttjänster inom IT och systemutveckling. De har lång erfarenhet av att leverera IT-lösningar till både stora och små företag."
-				content="FrontedgeIT är ett IT-konsultbolag som erbjuder konsulttjänster inom IT och systemutveckling. De har lång erfarenhet av att leverera IT-lösningar till både stora och små företag."
+				description="
+				FrontedgeIT is an IT consulting company that offers consulting services in IT and system development. They have extensive experience in delivering IT solutions to both large and small companies."
+				content="
+				FrontedgeIT is an IT consulting company that offers consulting services in IT and system development. They have extensive experience in delivering IT solutions to both large and small companies."
 				image="/images/frontedgeit.webp"
 				technologies={[
 					"React",
@@ -92,9 +94,30 @@ export default function Home() {
 				projectRole="Fullstack Developer"
 			/>
 			<Showcase
+				title="I am a game"
+				description="I am a game is a game that I created as a Degree Project and to learn Svelte, C#.net and SignalR."
+				content="I am a game is a game that I created as a Degree Project and to learn Svelte, C#.net and SignalR."
+				image="/images/iamagame.webp"
+				technologies={[
+					"Svelte",
+					"TypeScript",
+					"C#.net",
+					"SignalR",
+					"Javascript",
+					"HTML",
+					"CSS",
+					"Fly.io hosting",
+					"Github Actions",
+				]}
+				timespan="Jan 2021 - Jun 2021"
+				liveURL="https://iamagame.fly.dev/"
+				githubURL="https://github.com/Hargaaya/IAmAGame-Frontend"
+				projectRole="Fullstack Developer"
+			/>
+			<Showcase
 				title="Foodlist"
-				description="Foodlist är en webbapplikation som hjälper mig att hålla koll på mina favorit-recept. Jag kan lägga till recept, redigera dem och ta bort dem. Jag kan också ändra mängden portioner och få en uppdaterad lista av ingrediensers mängd."
-				content="Foodlist är en webbapplikation som hjälper mig att hålla koll på mina favorit-recept. Jag kan lägga till recept, redigera dem och ta bort dem. Jag kan också ändra mängden portioner och få en uppdaterad lista av ingrediensers mängd."
+				description="Foodlist is a web application that helps me keep track of my favorite recipes. I can add recipes, edit them and delete them. I can also change the amount of portions and get an updated list of ingredient amounts."
+				content="Foodlist is a web application that helps me keep track of my favorite recipes. I can add recipes, edit them and delete them. I can also change the amount of portions and get an updated list of ingredient amounts."
 				image="/images/foodlist.webp"
 				technologies={[
 					"Vue",
@@ -116,8 +139,8 @@ export default function Home() {
 			/>
 			<Showcase
 				title="Scruit"
-				description="Scruit är en Kanban board liknande Github Projects. Scruit är min första applikation som använder drag and drop."
-				content="Scruit är en Kanban board liknande Github Projects. Scruit är min första applikation som använder drag and drop."
+				description="Scruit is a Kanban board similar to Github Projects. Scruit is my first application that uses drag and drop."
+				content="Scruit is a Kanban board similar to Github Projects. Scruit is my first application that uses drag and drop."
 				image="/images/scruit.webp"
 				technologies={[
 					"React",
@@ -134,6 +157,17 @@ export default function Home() {
 				liveURL="https://scruit-2.firebaseapp.com/"
 				githubURL="https://github.com/Kybbe/scruit"
 				projectRole="Fullstack Developer"
+			/>
+			<Showcase
+				title="Todo"
+				description="Todo is a todo application that allows multiple lists, saving everything locally."
+				content="Todo is a todo application that allows multiple lists, saving everything locally."
+				image="/images/todo.webp"
+				technologies={["Vanilla JS", "Javascript", "HTML", "CSS"]}
+				timespan="Aug 2021 - Aug 2021"
+				liveURL="https://jacobklaren.com/To-do/"
+				githubURL="https://github.com/Kybbe/To-do"
+				projectRole="Frontend Developer"
 			/>
 		</main>
 	);
