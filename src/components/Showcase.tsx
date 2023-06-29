@@ -46,7 +46,7 @@ export default function Showcase({
 				</ImageContainer>
 
 				<ButtonContainer>
-					<ViewButton href={`/${title}`} target="_blank">
+					<ViewButton href={`/project/${title}`} target="_blank">
 						Read more
 					</ViewButton>
 				</ButtonContainer>
