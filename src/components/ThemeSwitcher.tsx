@@ -18,15 +18,23 @@ export default function ThemeSwitcher() {
 	}
 
 	function checkPrefersColorScheme() {
-		if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+		console.log(theme);
+
+		if (
+			window.matchMedia("(prefers-color-scheme: dark)").matches ||
+			theme === ""
+		) {
 			document.body.classList.add("dark");
 			dispatch(setTheme("dark"));
+		} else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+			document.body.classList.remove("dark");
+			dispatch(setTheme("light"));
 		}
 	}
 
 	useEffect(() => {
 		checkPrefersColorScheme();
-	}, []);
+	}, [theme]);
 
 	return (
 		<Container className="themeswitcher">
