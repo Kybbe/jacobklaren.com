@@ -4,19 +4,23 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Drawer from "react-modern-drawer";
+import { useAppSelector } from "@/hooks/redux/useAppSelector";
 import ThemeSwitcher from "./ThemeSwitcher";
 import SpinningLetterWords from "./SpinningLetterWords";
 import "react-modern-drawer/dist/index.css";
+import DrawerButton from "./DrawerButton";
 
 export default function DrawerNavbar() {
 	const [open, setOpen] = useState(false);
+	const theme = useAppSelector(state => state.ui.theme);
 
 	const toggleOpen = () => setOpen(!open);
 
 	useEffect(() => {
-		// Close the drawer when the window is resized to be larger than 900px
 		const handleResize = () => {
-			if (window.innerWidth > 900) {
+			const screenBig = window.innerWidth > 900;
+
+			if (screenBig) {
 				setOpen(false);
 			}
 		};
@@ -26,11 +30,14 @@ export default function DrawerNavbar() {
 		return () => window.removeEventListener("resize", handleResize);
 	}, []);
 
+	useEffect(() => {
+		setOpen(false);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [window.location.pathname]);
+
 	return (
-		<Container>
-			<MenuBtn type="button" onClick={toggleOpen}>
-				Show
-			</MenuBtn>
+		<Container lightenBackground={theme === "light"}>
+			<DrawerButton open={open} toggleOpen={toggleOpen} />
 
 			<Drawer
 				open={open}
@@ -38,8 +45,14 @@ export default function DrawerNavbar() {
 				direction="right"
 				className="hamburgerMenu"
 				lockBackgroundScroll
+				size={300}
 			>
-				<Link href="/">
+				<Link
+					href="/"
+					style={{
+						textDecoration: "none",
+					}}
+				>
 					<h1>Jacob Klarén</h1>
 				</Link>
 
@@ -79,24 +92,7 @@ export default function DrawerNavbar() {
 	);
 }
 
-const MenuBtn = styled.button`
-	position: fixed;
-	top: 1em;
-	right: 1em;
-	z-index: 100;
-
-	background: transparent;
-	border: none;
-	color: var(--text);
-	font-size: 1.5em;
-	cursor: pointer;
-
-	@media (min-width: 900px) {
-		display: none;
-	}
-`;
-
-const Container = styled.div`
+const Container = styled.div<{ lightenBackground?: boolean }>`
 	.hamburgerMenu {
 		background: transparent;
 		display: flex;
@@ -104,7 +100,10 @@ const Container = styled.div`
 		align-items: center;
 		gap: 1em;
 
-		backdrop-filter: blur(10px);
+		padding-top: 0.5em;
+
+		backdrop-filter: ${({ lightenBackground }) =>
+			lightenBackground ? "brightness(1.5) blur(10px)" : "blur(10px)"};
 		box-shadow: 0px 0px 10px rgba(var(--text), 0.25);
 
 		> .themeswitcher {
