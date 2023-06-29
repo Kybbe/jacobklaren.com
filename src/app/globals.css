@@ -35,7 +35,14 @@ body {
   background: rgb(var(--background));
   min-height: 100dvh;
 
+  caret-color: rgb(var(--accent));
+
   transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+::selection {
+  background: rgb(var(--accent));
+  color: rgb(var(--text));
 }
 
 a {
