@@ -37,7 +37,7 @@ export default function Home() {
 					"GraphQL",
 				]}
 				timespan="Jan 2023 - Present"
-				liveURL="https://www.q.scoutnet.se/"
+				liveURL="https://q.scoutnet.se/"
 				githubURL=""
 				projectRole="Fullstack Developer"
 			/>
@@ -89,6 +89,50 @@ export default function Home() {
 				timespan="Mar 2023 - Jun 2023"
 				liveURL="https://www.frontedgeit.se/"
 				githubURL=""
+				projectRole="Fullstack Developer"
+			/>
+			<Showcase
+				title="Foodlist"
+				description="Foodlist är en webbapplikation som hjälper mig att hålla koll på mina favorit-recept. Jag kan lägga till recept, redigera dem och ta bort dem. Jag kan också ändra mängden portioner och få en uppdaterad lista av ingrediensers mängd."
+				content="Foodlist är en webbapplikation som hjälper mig att hålla koll på mina favorit-recept. Jag kan lägga till recept, redigera dem och ta bort dem. Jag kan också ändra mängden portioner och få en uppdaterad lista av ingrediensers mängd."
+				image="/images/foodlist.webp"
+				technologies={[
+					"Vue",
+					"TypeScript",
+					"Firebase",
+					"Javascript",
+					"HTML",
+					"CSS",
+					"Vite",
+					"Firebase Auth",
+					"Firebase Realtime Database",
+					"Firebase Hosting",
+					"Vuex",
+				]}
+				timespan="Nov 2021 - Mar 2022"
+				liveURL="https://foodlist.jacobklaren.com/#/"
+				githubURL="https://github.com/Kybbe/foodlist"
+				projectRole="Fullstack Developer"
+			/>
+			<Showcase
+				title="Scruit"
+				description="Scruit är en Kanban board liknande Github Projects. Scruit är min första applikation som använder drag and drop."
+				content="Scruit är en Kanban board liknande Github Projects. Scruit är min första applikation som använder drag and drop."
+				image="/images/scruit.webp"
+				technologies={[
+					"React",
+					"TypeScript",
+					"React DnD",
+					"Javascript",
+					"HTML",
+					"CSS",
+					"Firebase",
+					"React Color",
+					"React Router",
+				]}
+				timespan="Jul 2022 - Apr 2022"
+				liveURL="https://scruit-2.firebaseapp.com/"
+				githubURL="https://github.com/Kybbe/scruit"
 				projectRole="Fullstack Developer"
 			/>
 		</main>
