@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
@@ -26,7 +27,18 @@ export default function Showcase({
 	projectRole,
 }: Props) {
 	return (
-		<Section>
+		<Section
+			initial={{
+				opacity: 0,
+				marginTop: 100,
+			}}
+			whileInView={{
+				opacity: 1,
+				marginTop: 0,
+			}}
+			transition={{ duration: 1 }}
+			viewport={{ once: true }}
+		>
 			<Left>
 				<Title>{title}</Title>
 				<ImageContainer>
@@ -34,8 +46,8 @@ export default function Showcase({
 				</ImageContainer>
 
 				<ButtonContainer>
-					<ViewButton href="https://www.scouterna.se/" target="_blank">
-						View
+					<ViewButton href={`/${title}`} target="_blank">
+						Read more
 					</ViewButton>
 				</ButtonContainer>
 
@@ -54,7 +66,7 @@ export default function Showcase({
 			<Right>
 				<p>{timespan}</p>
 				<p>{projectRole}</p>
-				<GitLiveLink href={liveURL}>
+				<GitLiveLink href={liveURL} target="_blank">
 					<svg
 						fill="currentcolor"
 						viewBox="0 0 16 16"
@@ -64,7 +76,7 @@ export default function Showcase({
 					</svg>
 					<p>Live site</p>
 				</GitLiveLink>
-				<GitLiveLink href={githubURL}>
+				<GitLiveLink href={githubURL} target="_blank">
 					<svg
 						height="32"
 						width="32"
@@ -85,7 +97,7 @@ export default function Showcase({
 	);
 }
 
-const Section = styled.section`
+const Section = styled(motion.section)`
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -177,7 +189,11 @@ const Right = styled.div`
 	text-align: right;
 
 	width: 20%;
-	padding: 1.8em 1em;
+	padding: 1.8em 0.2em 0 0;
+
+	@media (min-width: 600px) {
+		padding: 1.8em 1em;
+	}
 
 	@media (min-width: 900px) {
 		width: 30%;
@@ -203,16 +219,13 @@ const ViewButton = styled.a`
 	font-weight: 700;
 	text-transform: uppercase;
 
+	&:hover {
+		color: rgb(var(--text));
+	}
+
 	padding: 0.2em 0.8em;
 
 	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-
-	&:hover {
-		background-color: rgb(var(--text));
-		color: rgb(var(--background));
-		animation-play-state: paused;
-		text-decoration: underline;
-	}
 
 	@media (min-width: 600px) {
 		width: 5em;
@@ -223,13 +236,23 @@ const ViewButton = styled.a`
 		background: rgba(var(--background), 0.5);
 		text-decoration: none;
 		text-align: center;
-		line-height: 5em;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
 
 		padding: 0;
 
 		position: absolute;
 		bottom: 1em;
 		left: calc(100% - 2.5em);
+
+		&:hover {
+			background-color: rgb(var(--text));
+			color: rgb(var(--background));
+			animation-play-state: paused;
+			text-decoration: underline;
+		}
 
 		animation: spin 10s linear infinite;
 
