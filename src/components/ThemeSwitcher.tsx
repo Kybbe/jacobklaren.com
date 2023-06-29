@@ -18,15 +18,20 @@ export default function ThemeSwitcher() {
 	}
 
 	function checkPrefersColorScheme() {
-		console.log(theme);
+		if (theme === "dark") {
+			document.body.classList.add("dark");
+		}
 
 		if (
-			window.matchMedia("(prefers-color-scheme: dark)").matches ||
+			window.matchMedia("(prefers-color-scheme: dark)").matches &&
 			theme === ""
 		) {
 			document.body.classList.add("dark");
 			dispatch(setTheme("dark"));
-		} else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+		} else if (
+			window.matchMedia("(prefers-color-scheme: light)").matches &&
+			theme === ""
+		) {
 			document.body.classList.remove("dark");
 			dispatch(setTheme("light"));
 		}
