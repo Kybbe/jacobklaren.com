@@ -1,9 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 import styled from "styled-components";
-import Drawer from "react-modern-drawer";
 import ThemeSwitcher from "./ThemeSwitcher";
 import SpinningLetterWords from "./SpinningLetterWords";
 import "react-modern-drawer/dist/index.css";
@@ -15,7 +13,12 @@ export default function Navbar() {
 			<DrawerNavbar />
 
 			<Nav>
-				<Link href="/">
+				<Link
+					href="/"
+					style={{
+						textDecoration: "none",
+					}}
+				>
 					<h1>Jacob Klarén</h1>
 				</Link>
 
