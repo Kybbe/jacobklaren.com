@@ -311,5 +311,22 @@ const GitLiveLink = styled(Link)`
 	svg {
 		width: 1.2em;
 		height: 1.2em;
+
+		transition: all 0.2s ease-in-out;
+		transform: rotateY(0deg);
+	}
+
+	&:hover > svg {
+		fill: rgb(var(--accent));
+		animation: spinY 5s linear infinite;
+	}
+
+	@keyframes spinY {
+		0% {
+			transform: rotateY(0deg);
+		}
+		100% {
+			transform: rotateY(360deg);
+		}
 	}
 `;
