@@ -6,16 +6,28 @@
 
 body {
   --background: 237, 235, 233;
+  --background-hover: 220, 220, 220;
   --text: 12, 12, 12;
+  --text-hover: 24, 24, 24;
 
   --accent: 115, 47, 183;
+  --accent-hover: 145, 77, 214;
+
+  --success: 0, 158, 115;
+  --error: 255, 69, 58;
 }
 
 body.dark {
   --background: 12, 12, 12;
+  --background-hover: 24, 24, 24;
   --text: 245, 245, 245;
+  --text-hover: 220, 220, 220;
 
   --accent: 145, 77, 214;
+  --accent-hover: 115, 47, 183;
+
+  --success: 0, 158, 115;
+  --error: 255, 69, 58;
 }
 
 * {
@@ -42,7 +54,7 @@ body {
 
 ::selection {
   background: rgb(var(--accent));
-  color: rgb(var(--text));
+  color: rgb(255, 255, 255);
 }
 
 a {
