@@ -8,6 +8,7 @@ interface Props {
 	fontWeight?: string;
 	color?: string;
 	underline?: "hover" | "underline" | "none";
+	disabled?: boolean;
 }
 
 interface LetterProps {
@@ -15,6 +16,7 @@ interface LetterProps {
 	fontWeight?: string;
 	color?: string;
 	underline?: "hover" | "underline" | "none";
+	disabled?: boolean;
 }
 
 const SpinningLetterWords: FC<Props> = ({
@@ -23,6 +25,7 @@ const SpinningLetterWords: FC<Props> = ({
 	fontWeight,
 	color,
 	underline,
+	disabled,
 }) => {
 	useEffect(() => {
 		setTimeout(() => {
@@ -35,7 +38,11 @@ const SpinningLetterWords: FC<Props> = ({
 	}, []);
 
 	return (
-		<MainContainer underline={underline || "none"} color={color}>
+		<MainContainer
+			underline={underline || "none"}
+			color={color}
+			disabled={disabled}
+		>
 			<NormalLettersContainer className="normal">
 				{word.split("").map((letter: string, index: number) => (
 					<NormalLetter
@@ -81,6 +88,8 @@ const MainContainer = styled.div<LetterProps>`
 	position: relative;
 	white-space: nowrap;
 
+	cursor: ${props => (props.disabled ? "default" : "pointer")};
+
 	&:before {
 		content: "";
 		position: absolute;
@@ -106,16 +115,19 @@ const MainContainer = styled.div<LetterProps>`
 		left: 6px;
 
 		> p {
-			opacity: 1;
+			opacity: ${props => (props.disabled ? "0" : "1")};
 
 			transform: translate3d(0%, 0px, 0px) scale(1, 1);
 		}
 	}
 
 	&:hover > .normal > p {
-		opacity: 0;
+		opacity: ${props => (props.disabled ? "1" : "0")};
 
-		transform: translate3d(50%, 0px, 0px) scale(0, 1);
+		transform: ${props =>
+			props.disabled
+				? "translate3d(0%, 0px, 0px) scale(1, 1)"
+				: "translate3d(50%, 0px, 0px) scale(0, 1)"};
 	}
 `;
 
