@@ -35,8 +35,11 @@ export default function DrawerNavbar() {
 
 	useEffect(() => {
 		setOpen(false);
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [window.location.pathname]);
+	}, [pathname]);
+
+	useEffect(() => {
+		document.body.style.overflow = open ? "hidden" : "auto";
+	}, [open]);
 
 	return (
 		<Container lightenBackground={theme === "light"}>
@@ -100,20 +103,6 @@ export default function DrawerNavbar() {
 											: "rgb(var(--text))"
 									}
 									disabled={isCurrentPath("/about")}
-								/>
-							</NavLink>
-						</li>
-						<li>
-							<NavLink href="/photos">
-								<SpinningLetterWords
-									word="Photos"
-									underline={isCurrentPath("/photos") ? "none" : "hover"}
-									color={
-										isCurrentPath("/photos")
-											? "rgb(var(--accent))"
-											: "rgb(var(--text))"
-									}
-									disabled={isCurrentPath("/photos")}
 								/>
 							</NavLink>
 						</li>
@@ -189,7 +178,8 @@ const NavLink = styled(Link)`
 	font-weight: 600;
 	font-size: 2em;
 
-	&:hover {
+	&:hover,
+	&:focus {
 		color: rgb(var(--color-accent));
 		text-decoration: underline;
 	}

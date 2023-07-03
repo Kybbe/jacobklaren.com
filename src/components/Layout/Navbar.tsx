@@ -71,20 +71,6 @@ export default function Navbar() {
 								/>
 							</NavLink>
 						</li>
-						<li>
-							<NavLink href="/photos">
-								<SpinningLetterWords
-									word="Photos"
-									underline={isCurrentPath("/photos") ? "none" : "hover"}
-									color={
-										isCurrentPath("/photos")
-											? "rgb(var(--accent))"
-											: "rgb(var(--text))"
-									}
-									disabled={isCurrentPath("/photos")}
-								/>
-							</NavLink>
-						</li>
 					</UL>
 
 					<ThemeSwitcher />
