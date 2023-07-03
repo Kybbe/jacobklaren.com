@@ -4,6 +4,7 @@ import "./globals.css";
 import { Work_Sans } from "next/font/google";
 import StyledComponentsRegistry from "@/utils/StyledComponentsRegistry";
 import { Providers } from "@/utils/ProviderFactory";
+import Footer from "@/components/Layout/Footer";
 
 const WS = Work_Sans({ subsets: ["latin"] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({
 					<Providers>
 						<Navbar />
 						{children}
+						<Footer />
 					</Providers>
 				</StyledComponentsRegistry>
 			</body>
