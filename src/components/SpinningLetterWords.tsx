@@ -104,14 +104,16 @@ const MainContainer = styled.div<LetterProps>`
 		transition: width 0.35s ease-in-out, left 0.35s ease-in-out;
 	}
 
-	&:hover {
+	&:hover,
+	&:focus {
 		&:before {
 			width: ${props => (props.underline !== "none" ? "100%" : "0%")};
 			left: 6px;
 		}
 	}
 
-	&:hover > .italic {
+	&:hover > .italic,
+	&:focus > .italic {
 		left: 6px;
 
 		> p {
@@ -121,7 +123,8 @@ const MainContainer = styled.div<LetterProps>`
 		}
 	}
 
-	&:hover > .normal > p {
+	&:hover > .normal > p,
+	&:focus > .normal > p {
 		opacity: ${props => (props.disabled ? "1" : "0")};
 
 		transform: ${props =>
@@ -147,7 +150,8 @@ const ItalicLettersContainer = styled.div<LetterProps>`
 			? `1px solid ${props.color || "rgb(var(--text))"}`
 			: "none"};
 
-	&:hover {
+	&:hover,
+	&:focus {
 		border-bottom: ${props =>
 			props.underline === "hover"
 				? `1px solid ${props.color || "rgb(var(--text))"}`

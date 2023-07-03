@@ -92,12 +92,17 @@ const Button = styled.button`
 
 		&.active:hover span:first-of-type,
 		&.active:hover span:last-of-type,
+		&.active:focus span:first-of-type,
+		&.active:focus span:last-of-type,
 		&:hover .menu-icon__cheeckbox:checked + div span:first-of-type,
-		&:hover .menu-icon__cheeckbox:checked + div span:last-of-type {
+		&:hover .menu-icon__cheeckbox:checked + div span:last-of-type,
+		&:focus .menu-icon__cheeckbox:checked + div span:first-of-type,
+		&:focus .menu-icon__cheeckbox:checked + div span:last-of-type {
 			width: 32px;
 		}
 
-		&:hover {
+		&:hover,
+		&:focus {
 			span:first-of-type {
 				width: 36px;
 			}

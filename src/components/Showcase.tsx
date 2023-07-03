@@ -219,7 +219,8 @@ const ViewButton = styled.a`
 	font-weight: 700;
 	text-transform: uppercase;
 
-	&:hover {
+	&:hover,
+	&:focus {
 		color: rgb(var(--text));
 	}
 
@@ -247,7 +248,8 @@ const ViewButton = styled.a`
 		bottom: 1em;
 		left: calc(100% - 2.5em);
 
-		&:hover {
+		&:hover,
+		&:focus {
 			background-color: rgb(var(--text));
 			color: rgb(var(--background));
 			animation-play-state: paused;
@@ -293,7 +295,8 @@ const UL = styled.ul`
 			font-weight: 700;
 		}
 
-		&:hover {
+		&:hover,
+		&:focus {
 			background-color: rgb(var(--accent));
 			color: white;
 			font-weight: 800;
@@ -316,7 +319,8 @@ const GitLiveLink = styled(Link)`
 		transform: rotateY(0deg);
 	}
 
-	&:hover > svg {
+	&:hover > svg,
+	&:focus > svg {
 		fill: rgb(var(--accent));
 		animation: spinY 5s linear infinite;
 	}

@@ -11,7 +11,7 @@ export default function Home() {
 			<Showcase
 				title="Scouterna"
 				description="The Scouts are a democratic children's and youth organization based on the scout method. The Scouts are non-religious and welcome everyone who can stand behind their core values."
-				image="/images/scouterna.webp"
+				image="/images/projects/scouterna.webp"
 				content="Scouterna är en demokratisk barn- och ungdomsorganisation som bygger på scoutmetoden. Scouterna är partipolitiskt och religiöst obundna och välkomnar alla som kan ställa sig bakom vår värdegrund."
 				technologies={[
 					"React",
@@ -45,7 +45,7 @@ export default function Home() {
 				title="Mimbly"
 				description="Mimbly is a cleantech company from Gothenburg. Starting in 2023, Mimbly designs and launches its laundry innovations in Gothenburg, Sweden. Their achievements over the years are what propels them from startup to scaleup."
 				content="Mimbly is a cleantech company from Gothenburg. Starting in 2023, Mimbly designs and launches its laundry innovations in Gothenburg, Sweden. Their achievements over the years are what propels them from startup to scaleup."
-				image="/images/mimbly.webp"
+				image="/images/projects/mimbly.webp"
 				technologies={[
 					"React",
 					"Next.js",
@@ -73,7 +73,7 @@ export default function Home() {
 				FrontedgeIT is an IT consulting company that offers consulting services in IT and system development. They have extensive experience in delivering IT solutions to both large and small companies."
 				content="
 				FrontedgeIT is an IT consulting company that offers consulting services in IT and system development. They have extensive experience in delivering IT solutions to both large and small companies."
-				image="/images/frontedgeit.webp"
+				image="/images/projects/frontedgeit.webp"
 				technologies={[
 					"React",
 					"Next.js",
@@ -97,7 +97,7 @@ export default function Home() {
 				title="I am a game"
 				description="I am a game is a game that I created as a Degree Project and to learn Svelte, C#.net and SignalR."
 				content="I am a game is a game that I created as a Degree Project and to learn Svelte, C#.net and SignalR."
-				image="/images/iamagame.webp"
+				image="/images/projects/iamagame.webp"
 				technologies={[
 					"Svelte",
 					"TypeScript",
@@ -118,7 +118,7 @@ export default function Home() {
 				title="Foodlist"
 				description="Foodlist is a web application that helps me keep track of my favorite recipes. I can add recipes, edit them and delete them. I can also change the amount of portions and get an updated list of ingredient amounts."
 				content="Foodlist is a web application that helps me keep track of my favorite recipes. I can add recipes, edit them and delete them. I can also change the amount of portions and get an updated list of ingredient amounts."
-				image="/images/foodlist.webp"
+				image="/images/projects/foodlist.webp"
 				technologies={[
 					"Vue",
 					"TypeScript",
@@ -141,7 +141,7 @@ export default function Home() {
 				title="Scruit"
 				description="Scruit is a Kanban board similar to Github Projects. Scruit is my first application that uses drag and drop."
 				content="Scruit is a Kanban board similar to Github Projects. Scruit is my first application that uses drag and drop."
-				image="/images/scruit.webp"
+				image="/images/projects/scruit.webp"
 				technologies={[
 					"React",
 					"TypeScript",
@@ -162,7 +162,7 @@ export default function Home() {
 				title="Todo"
 				description="Todo is a todo application that allows multiple lists, saving everything locally."
 				content="Todo is a todo application that allows multiple lists, saving everything locally."
-				image="/images/todo.webp"
+				image="/images/projects/todo.webp"
 				technologies={["Vanilla JS", "Javascript", "HTML", "CSS"]}
 				timespan="Aug 2021 - Aug 2021"
 				liveURL="https://jacobklaren.com/To-do/"
