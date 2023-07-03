@@ -149,7 +149,8 @@ const Button = styled.button<{ error: boolean; success: boolean }>`
 	outline: none;
 	transition: all 0.2s ease-in-out;
 
-	&:hover {
+	&:hover,
+	&:focus {
 		background-color: rgb(var(--accent-hover));
 		background-color: ${props => props.error && "rgb(var(--error))"};
 		background-color: ${props => props.success && "rgb(var(--success))"};
