@@ -1,14 +1,14 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Loader from "../Loader";
-import Airplane from "../Airplane";
+import Airplane from "./Airplane";
 
 export default function ContactForm() {
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState<boolean | string>(false);
 	const [success, setSuccess] = useState(false);
 
-	function submitForm(e: React.FormEvent<HTMLFormElement>) {
+	async function submitForm(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault();
 
 		const form = e.target as HTMLFormElement;
@@ -27,27 +27,39 @@ export default function ContactForm() {
 		setLoading(true);
 		setError(false);
 
-		fetch("/api/sendMail", {
+		const response = await fetch("/api/sendMail", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify(data),
-		})
-			.then(() => {
-				setLoading(false);
-				setSuccess(true);
-				setError(false);
-				form.reset();
+		});
 
-				setTimeout(() => {
-					setSuccess(false);
-				}, 7000);
-			})
-			.catch(() => {
-				setLoading(false);
-				setError("Something went wrong!");
-			});
+		if (response.ok) {
+			setLoading(false);
+			setSuccess(true);
+			setError(false);
+			form.reset();
+
+			setTimeout(() => {
+				setSuccess(false);
+			}, 7000);
+		} else {
+			setLoading(false);
+			setSuccess(false);
+
+			if (response.status === 429) {
+				setError("You've sent too many emails. Please try again later.");
+			} else if (response.status === 400) {
+				setError("Please fill out all required fields.");
+			} else {
+				setError("Something went wrong! Please try again later.");
+			}
+
+			setTimeout(() => {
+				setError(false);
+			}, 3000);
+		}
 	}
 
 	return (
@@ -147,6 +159,7 @@ const Button = styled.button<{ error: boolean; success: boolean }>`
 	font-size: 1em;
 	font-weight: 500;
 	outline: none;
+	cursor: pointer;
 	transition: all 0.2s ease-in-out;
 
 	&:hover,
