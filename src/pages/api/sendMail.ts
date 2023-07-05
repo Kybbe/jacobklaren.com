@@ -12,7 +12,7 @@ export default async function handler(
 	res: NextApiResponse
 ) {
 	try {
-		await limiter.check(res, 3, "CACHE_TOKEN"); // 10 requests per minute
+		await limiter.check(res, 3, "CACHE_TOKEN"); // 3 requests per hour
 	} catch {
 		res.status(429).json({ error: "Rate limit exceeded" });
 	}
@@ -23,7 +23,7 @@ export default async function handler(
 	const password = process.env.MAIL_PASSWORD;
 
 	const obj = {
-		from: `<Portfolio>${username}`,
+		from: `Portfolio <${username}>`,
 		to: "jacob.klaren@outlook.com",
 		subject: "New message from portfolio",
 		text: "",
@@ -49,9 +49,9 @@ export default async function handler(
 	transport.sendMail(obj, (err, info) => {
 		if (err) {
 			console.error(err);
-			res.status(500).send("Error sending email");
+			res.status(500).send(err);
 		} else {
-			res.status(200).send("Email sent");
+			res.status(200).send({ message: "Email sent", accepted: info.accepted });
 		}
 	});
 }
