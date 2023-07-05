@@ -38,7 +38,6 @@ export default function Home() {
 				]}
 				timespan="Jan 2023 - Present"
 				liveURL="https://q.scoutnet.se/"
-				githubURL=""
 				projectRole="Fullstack Developer"
 			/>
 			<Showcase
@@ -64,7 +63,6 @@ export default function Home() {
 				]}
 				timespan="Sep 2022 - Jan 2023"
 				liveURL="https://mimbly-frontend.azurewebsites.net/"
-				githubURL=""
 				projectRole="Lead Frontend Developer"
 			/>
 			<Showcase
@@ -90,7 +88,6 @@ export default function Home() {
 				]}
 				timespan="Mar 2023 - Jun 2023"
 				liveURL="https://www.frontedgeit.se/"
-				githubURL=""
 				projectRole="Fullstack Developer"
 			/>
 			<Showcase
@@ -156,6 +153,23 @@ export default function Home() {
 				timespan="Jul 2022 - Apr 2022"
 				liveURL="https://scruit-2.firebaseapp.com/"
 				githubURL="https://github.com/Kybbe/scruit"
+				projectRole="Fullstack Developer"
+			/>
+			<Showcase
+				title="Frontedge dashboard"
+				description="Frontedge dashboard is a small project for a spare screen at the Frontedge IT office. The dashboard shows the weather, the time, the date and departures from the nearest bus stop in realtime."
+				content="Frontedge dashboard is a small project for a spare screen at the Frontedge IT office. The dashboard shows the weather, the time, the date and departures from the nearest bus stop in realtime."
+				image="/images/projects/FEITDashboard.webp"
+				technologies={[
+					"React",
+					"TypeScript",
+					"Javascript",
+					"REST API",
+					"HTML",
+					"CSS",
+				]}
+				timespan="Mar 2022 - Mar 2022"
+				liveURL="https://feit-dashboard.fly.dev/"
 				projectRole="Fullstack Developer"
 			/>
 			<Showcase
