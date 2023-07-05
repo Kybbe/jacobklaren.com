@@ -2,6 +2,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import CTAButton from "./CTAButton";
 import DownArrow from "../DownArrow";
+import DownloadIcon from "../DownloadIcon";
 
 export default function HeroSection() {
 	return (
@@ -22,7 +23,16 @@ export default function HeroSection() {
 
 				<br />
 
-				<CTAButton />
+				<ButtonContainer>
+					<CTAButton />
+
+					<ButtonDivider>Or</ButtonDivider>
+
+					<DonwloadResumeButton href="/files/JacobKlarenCV.pdf" download>
+						<DownloadIcon color="rgb(var(--accent))" size="2em" />
+						Download my resume
+					</DonwloadResumeButton>
+				</ButtonContainer>
 			</Col>
 
 			<Col className="imageContainerCol">
@@ -143,5 +153,57 @@ const StyledImage = styled(Image)`
 		padding: 1em;
 		height: auto;
 		width: 100%;
+	}
+`;
+
+const ButtonContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	width: fit-content;
+	gap: 1em;
+
+	@media (min-width: 550px) {
+		align-items: center;
+		flex-direction: row;
+		gap: 1em;
+	}
+`;
+
+const ButtonDivider = styled.h3`
+	font-size: 1.2em;
+	color: rgb(var(--text));
+	font-weight: 500;
+	text-align: center;
+
+	@media (min-width: 900px) {
+		font-size: 1.5em;
+	}
+`;
+
+const DonwloadResumeButton = styled.a`
+	display: flex;
+	align-items: center;
+	font-size: 1em;
+	font-weight: 500;
+	color: rgb(var(--accent));
+	text-decoration: none;
+	width: fit-content;
+	white-space: nowrap;
+	transition: all 0.2s ease-in-out;
+
+	svg {
+		transform: translateY(0px);
+		transition: all 0.2s ease-in-out;
+	}
+
+	&:hover,
+	&:focus {
+		svg {
+			transform: translateY(5px);
+		}
+	}
+
+	@media (min-width: 900px) {
+		font-size: 1.2em;
 	}
 `;

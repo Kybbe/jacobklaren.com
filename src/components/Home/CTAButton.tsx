@@ -10,6 +10,7 @@ export default function CTAButon() {
 }
 
 const StyledLink = styled(Link)`
+	display: inline-block;
 	background-color: transparent;
 	border: 2px solid rgb(var(--accent));
 	border-radius: var(--border-radius);
