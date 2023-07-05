@@ -63,7 +63,7 @@ export default function Home() {
 				]}
 				timespan="Sep 2022 - Jan 2023"
 				liveURL="https://mimbly-frontend.azurewebsites.net/"
-				projectRole="Lead Frontend Developer"
+				projectRole="Frontend Developer"
 			/>
 			<Showcase
 				title="FrontedgeIT.se"
