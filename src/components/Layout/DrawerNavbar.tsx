@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import styled from "styled-components";
 import Drawer from "react-modern-drawer";
 import { useAppSelector } from "@/hooks/redux/useAppSelector";
 import { usePathname } from "next/navigation";
@@ -10,6 +9,7 @@ import ThemeSwitcher from "./ThemeSwitcher";
 import SpinningLetterWords from "../SpinningLetterWords";
 import "react-modern-drawer/dist/index.css";
 import DrawerButton from "./DrawerButton";
+import styles from "./DrawerNavbar.module.scss";
 
 export default function DrawerNavbar() {
 	const [open, setOpen] = useState(false);
@@ -42,14 +42,16 @@ export default function DrawerNavbar() {
 	}, [open]);
 
 	return (
-		<Container lightenBackground={theme === "light"}>
+		<div>
 			<DrawerButton open={open} toggleOpen={toggleOpen} />
 
 			<Drawer
 				open={open}
 				onClose={toggleOpen}
 				direction="right"
-				className="hamburgerMenu"
+				className={`${styles.hamburgerMenu} ${
+					theme === "light" ? styles.lightenBackground : ""
+				}`}
 				lockBackgroundScroll
 				size={300}
 			>
@@ -62,10 +64,10 @@ export default function DrawerNavbar() {
 					<h1>Jacob Klarén</h1>
 				</Link>
 
-				<div className="right">
-					<UL>
+				<div className={styles.right}>
+					<ul className={styles.ul}>
 						<li>
-							<NavLink href="/">
+							<Link className={styles.navLink} href="/">
 								<SpinningLetterWords
 									word="Home"
 									underline={isCurrentPath("/") ? "none" : "hover"}
@@ -76,10 +78,10 @@ export default function DrawerNavbar() {
 									}
 									disabled={isCurrentPath("/")}
 								/>
-							</NavLink>
+							</Link>
 						</li>
 						<li>
-							<NavLink href="/contact">
+							<Link className={styles.navLink} href="/contact">
 								<SpinningLetterWords
 									word="Contact"
 									underline={isCurrentPath("/contact") ? "none" : "hover"}
@@ -90,10 +92,10 @@ export default function DrawerNavbar() {
 									}
 									disabled={isCurrentPath("/contact")}
 								/>
-							</NavLink>
+							</Link>
 						</li>
 						<li>
-							<NavLink href="/about">
+							<Link className={styles.navLink} href="/about">
 								<SpinningLetterWords
 									word="About"
 									underline={isCurrentPath("/about") ? "none" : "hover"}
@@ -104,83 +106,13 @@ export default function DrawerNavbar() {
 									}
 									disabled={isCurrentPath("/about")}
 								/>
-							</NavLink>
+							</Link>
 						</li>
-					</UL>
+					</ul>
 
 					<ThemeSwitcher />
 				</div>
 			</Drawer>
-		</Container>
+		</div>
 	);
 }
-
-const Container = styled.div<{ lightenBackground?: boolean }>`
-	.hamburgerMenu {
-		background: transparent;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 1em;
-
-		padding-top: 0.5em;
-
-		backdrop-filter: ${({ lightenBackground }) =>
-			lightenBackground ? "brightness(1.5) blur(10px)" : "blur(10px)"};
-		box-shadow: 0px 0px 10px rgba(var(--text), 0.25);
-
-		> .themeswitcher {
-			position: absolute;
-			bottom: 1em;
-			right: 1em;
-		}
-
-		h1 {
-			color: rgb(var(--accent));
-			padding: 0.2em 1em;
-			white-space: nowrap;
-		}
-
-		> .right {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			align-items: center;
-			gap: 1em;
-			flex: 1;
-			width: 100%;
-
-			> .themeswitcher {
-				align-self: flex-end;
-				padding: 0.5em;
-			}
-		}
-
-		@media (max-width: 600px) {
-			width: 100% !important;
-		}
-	}
-`;
-
-const UL = styled.ul`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-evenly;
-	gap: 1em;
-
-	list-style: none;
-`;
-
-const NavLink = styled(Link)`
-	color: var(--color-text);
-	text-decoration: none;
-	font-weight: 600;
-	font-size: 2em;
-
-	&:hover,
-	&:focus {
-		color: rgb(var(--color-accent));
-		text-decoration: underline;
-	}
-`;

@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import styled from "styled-components";
 import { usePathname } from "next/navigation";
+import styles from "./Navbar.module.scss";
 import ThemeSwitcher from "./ThemeSwitcher";
 import SpinningLetterWords from "../SpinningLetterWords";
 import "react-modern-drawer/dist/index.css";
@@ -17,7 +17,7 @@ export default function Navbar() {
 		<>
 			<DrawerNavbar />
 
-			<Nav>
+			<nav className={styles.nav}>
 				<Link
 					href="/"
 					style={{
@@ -27,10 +27,10 @@ export default function Navbar() {
 					<h1>Jacob Klarén</h1>
 				</Link>
 
-				<div className="right">
-					<UL>
+				<div className={styles.right}>
+					<ul className={styles.ul}>
 						<li>
-							<NavLink href="/">
+							<Link className={styles.navLink} href="/">
 								<SpinningLetterWords
 									word="Home"
 									underline={isCurrentPath("/") ? "none" : "hover"}
@@ -41,10 +41,10 @@ export default function Navbar() {
 									}
 									disabled={isCurrentPath("/")}
 								/>
-							</NavLink>
+							</Link>
 						</li>
 						<li>
-							<NavLink href="/contact">
+							<Link className={styles.navLink} href="/contact">
 								<SpinningLetterWords
 									word="Contact"
 									underline={isCurrentPath("/contact") ? "none" : "hover"}
@@ -55,10 +55,10 @@ export default function Navbar() {
 									}
 									disabled={isCurrentPath("/contact")}
 								/>
-							</NavLink>
+							</Link>
 						</li>
 						<li>
-							<NavLink href="/about">
+							<Link className={styles.navLink} href="/about">
 								<SpinningLetterWords
 									word="About"
 									underline={isCurrentPath("/about") ? "none" : "hover"}
@@ -69,95 +69,13 @@ export default function Navbar() {
 									}
 									disabled={isCurrentPath("/about")}
 								/>
-							</NavLink>
+							</Link>
 						</li>
-					</UL>
+					</ul>
 
 					<ThemeSwitcher />
 				</div>
-			</Nav>
+			</nav>
 		</>
 	);
 }
-
-const Nav = styled.nav`
-	background: transparent;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: flex-end;
-	gap: 1em;
-
-	width: 100%;
-
-	backdrop-filter: blur(10px);
-	box-shadow: 0px 0px 10px rgba(var(--text), 0.25);
-
-	position: fixed;
-	top: 0;
-	z-index: 100;
-
-	height: var(--navbar-height);
-
-	> .themeswitcher {
-		position: absolute;
-		bottom: 1em;
-		right: 1em;
-	}
-
-	> .right {
-		display: flex;
-		flex-direction: row;
-		justify-content: flex-end;
-		align-items: center;
-		gap: 1em;
-		flex: 1;
-		width: 100%;
-
-		> .themeswitcher {
-			align-self: flex-end;
-			padding: 0.5em;
-		}
-	}
-
-	@media (min-width: 500px) {
-		left: auto;
-	}
-
-	h1 {
-		color: rgb(var(--accent));
-		padding: 0.2em 1em;
-		white-space: nowrap;
-	}
-
-	@media (max-width: 900px) {
-		display: none;
-	}
-`;
-
-const UL = styled.ul`
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-	gap: 1em;
-
-	list-style: none;
-`;
-
-const NavLink = styled(Link)`
-	color: var(--color-text);
-	text-decoration: none;
-	font-weight: 600;
-	font-size: 1.5em;
-
-	&:hover {
-		color: rgb(var(--color-accent));
-		text-decoration: underline;
-	}
-
-	&.active {
-		color: rgb(var(--color-accent));
-		text-decoration: underline;
-	}
-`;

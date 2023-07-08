@@ -1,148 +1,81 @@
-"use client";
-
-import styled from "styled-components";
+import styles from "./Footer.module.scss";
 
 export default function Footer() {
 	return (
-		<FooterContainer>
-			<FooterSection>
-				<FooterTitle>Get in touch</FooterTitle>
+		<footer className={styles.container}>
+			<section className={styles.section}>
+				<h2 className="title">Get in touch</h2>
 
-				<FooterText>
+				<p className={styles.text}>
 					You can contact me by sending an email to{" "}
-					<FooterLink href="mailto:jacob.klaren@me.com">
+					<a className={styles.link} href="mailto:jacob.klaren@me.com">
 						Jacob.klaren@me.com
-					</FooterLink>{" "}
+					</a>{" "}
 					or by filling out the{" "}
-					<FooterLink href="/contact">form on the contact page</FooterLink>
-				</FooterText>
-			</FooterSection>
+					<a className={styles.link} href="/contact">
+						form on the contact page
+					</a>
+				</p>
+			</section>
 
-			<FooterSection>
-				<FooterTitle>Follow me</FooterTitle>
+			<section className={styles.section}>
+				<h2 className="title">Follow me</h2>
 
-				<FooterText>
+				<p className={styles.text}>
 					You can follow me on{" "}
-					<FooterLink href="https://www.linkedin.com/in/jacob-klaren/">
+					<a
+						className={styles.link}
+						href="https://www.linkedin.com/in/jacob-klaren/"
+					>
 						LinkedIn
-					</FooterLink>{" "}
-					and <FooterLink href="https://github.com/Kybbe">Github</FooterLink>
-				</FooterText>
-			</FooterSection>
+					</a>{" "}
+					and{" "}
+					<a className={styles.link} href="https://github.com/Kybbe">
+						Github
+					</a>
+				</p>
+			</section>
 
-			<FooterSection>
-				<FooterTitle>My resume</FooterTitle>
+			<section className={styles.section}>
+				<h2 className="title">My resume</h2>
 
-				<FooterText>
+				<p className={styles.text}>
 					You can{" "}
-					<FooterLink href="/Jacob_Klaren_CV.pdf" download>
+					<a className={styles.link} href="/Jacob_Klaren_CV.pdf" download>
 						download my resume
-					</FooterLink>{" "}
+					</a>{" "}
 					or{" "}
-					<FooterLink href="/Jacob_Klaren_CV.pdf" target="_blank">
+					<a
+						className={styles.link}
+						href="/Jacob_Klaren_CV.pdf"
+						target="_blank"
+					>
 						view it directly in browser
-					</FooterLink>
-				</FooterText>
-			</FooterSection>
+					</a>
+				</p>
+			</section>
 
-			<FooterSection>
-				<FooterTitle>Tech used</FooterTitle>
+			<section className={styles.section}>
+				<h2 className="title">Tech used</h2>
 
-				<Row>
-					<FooterUl>
-						<FooterLi>Next.js</FooterLi>
-						<FooterLi>React</FooterLi>
-						<FooterLi>Vercel</FooterLi>
-					</FooterUl>
-					<FooterUl>
-						<FooterLi>Typescript</FooterLi>
-						<FooterLi>Framer Motion</FooterLi>
-						<FooterLi>Spline 3d</FooterLi>
-					</FooterUl>
-					<FooterUl>
-						<FooterLi>Styled Components</FooterLi>
-						<FooterLi>Nodemailer</FooterLi>
-						<FooterLi>Redux</FooterLi>
-					</FooterUl>
-				</Row>
-			</FooterSection>
-		</FooterContainer>
+				<div className={styles.row}>
+					<ul className={styles.ul}>
+						<li className={styles.li}>Next.js</li>
+						<li className={styles.li}>React</li>
+						<li className={styles.li}>Vercel</li>
+					</ul>
+					<ul className={styles.ul}>
+						<li className={styles.li}>Typescript</li>
+						<li className={styles.li}>Framer Motion</li>
+						<li className={styles.li}>Spline 3d</li>
+					</ul>
+					<ul className={styles.ul}>
+						<li className={styles.li}>Styled Components</li>
+						<li className={styles.li}>Nodemailer</li>
+						<li className={styles.li}>Redux</li>
+					</ul>
+				</div>
+			</section>
+		</footer>
 	);
 }
-
-const FooterContainer = styled.footer`
-	width: 100%;
-	padding: 2em;
-	background-color: rgb(var(--footer));
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	gap: 2em;
-
-	@media (min-width: 1050px) {
-		flex-direction: row;
-	}
-`;
-
-const FooterSection = styled.section`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	gap: 1em;
-
-	@media (min-width: 1050px) {
-		align-items: flex-start;
-	}
-`;
-
-const FooterTitle = styled.h2`
-	font-size: 1.5em;
-	font-weight: 500;
-	color: rgb(var(--text));
-`;
-
-const FooterText = styled.p`
-	font-size: 1em;
-	font-weight: 400;
-	color: rgb(var(--text));
-	text-align: center;
-
-	@media (min-width: 1050px) {
-		text-align: left;
-	}
-`;
-
-const FooterLink = styled.a`
-	font-size: 1em;
-	font-weight: 400;
-	color: rgb(var(--accent));
-	text-decoration: none;
-	transition: 0.2s ease-in-out;
-
-	&:hover {
-		text-decoration: underline;
-	}
-`;
-
-const Row = styled.div`
-	display: flex;
-	flex-direction: row;
-	gap: 1em;
-`;
-
-const FooterUl = styled.ul`
-	display: flex;
-	flex-direction: column;
-	gap: 0.5em;
-	list-style: none;
-	padding: 0;
-	margin: 0;
-`;
-
-const FooterLi = styled.li`
-	font-size: 0.85em;
-	font-weight: 400;
-	color: rgb(var(--text));
-`;

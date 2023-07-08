@@ -28,6 +28,7 @@
     "react-modern-drawer": "^1.2.0",
     "react-redux": "^8.0.5",
     "redux-persist": "^6.0.0",
+    "sass": "^1.63.6",
     "styled-components": "^5.3.9",
     "typescript": "5.1.3"
   },

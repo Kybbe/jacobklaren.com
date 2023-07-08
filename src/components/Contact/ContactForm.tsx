@@ -1,180 +1,175 @@
-import { useState } from "react";
-import styled from "styled-components";
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import { FC } from "react";
 import Loader from "../Loader";
 import Airplane from "./Airplane";
+import styles from "./ContactForm.module.scss";
 
-export default function ContactForm() {
-	const [loading, setLoading] = useState(false);
-	const [error, setError] = useState<boolean | string>(false);
-	const [success, setSuccess] = useState(false);
-
-	async function submitForm(e: React.FormEvent<HTMLFormElement>) {
-		e.preventDefault();
-
-		const form = e.target as HTMLFormElement;
-		const name = form.fullname.value;
-		const email = form.email.value;
-		const company = form.company.value;
-		const message = form.message.value;
-
-		const data = {
-			name,
-			email,
-			company,
-			message,
-		};
-
-		setLoading(true);
-		setError(false);
-
-		const response = await fetch("/api/sendMail", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(data),
-		});
-
-		if (response.ok) {
-			setLoading(false);
-			setSuccess(true);
-			setError(false);
-			form.reset();
-
-			setTimeout(() => {
-				setSuccess(false);
-			}, 7000);
-		} else {
-			setLoading(false);
-			setSuccess(false);
-
-			if (response.status === 429) {
-				setError("You've sent too many emails. Please try again later.");
-			} else if (response.status === 400) {
-				setError("Please fill out all required fields.");
-			} else {
-				setError("Something went wrong! Please try again later.");
-			}
-
-			setTimeout(() => {
-				setError(false);
-			}, 3000);
-		}
-	}
-
-	return (
-		<Form
-			className="contact-form"
-			onSubmit={e => {
-				submitForm(e);
-			}}
-		>
-			<Input
-				type="text"
-				name="fullname"
-				placeholder="Name (required)"
-				required
-			/>
-			<Input
-				type="email"
-				name="email"
-				placeholder="Email (required)"
-				required
-			/>
-			<Input type="text" name="company" placeholder="Company Name" />
-			<Textarea name="message" placeholder="Message" />
-			<Button type="submit" error={!!error} success={success}>
-				{loading ? (
-					<div
-						style={{
-							display: "flex",
-							alignItems: "center",
-							gap: "1em",
-							justifyContent: "center",
-						}}
-					>
-						<Loader size={18} />
-						<span>Loading...</span>
-					</div>
-				) : (
-					error || (success ? "Sent!" : "Send")
-				)}
-			</Button>
-			{success && (
-				<SplineContainer>
-					<Airplane />
-				</SplineContainer>
-			)}
-		</Form>
-	);
+interface Props {
+	step: number;
+	loading: boolean;
+	success: boolean;
+	error: boolean | string;
+	stepError: boolean | string;
+	submitForm: (e: React.FormEvent<HTMLFormElement>) => void;
+	data: {
+		name: string;
+		email: string;
+		company: string;
+		message: string;
+	};
+	setData: (data: {
+		name: string;
+		email: string;
+		company: string;
+		message: string;
+	}) => void;
 }
 
-const Form = styled.form`
-	display: flex;
-	flex-direction: column;
-	gap: 1em;
-	padding: 1em;
-`;
+const ContactForm: FC<Props> = ({
+	step,
+	loading,
+	success,
+	error,
+	stepError,
+	submitForm,
+	data,
+	setData,
+}) => (
+	<form
+		className={styles.form}
+		onSubmit={e => {
+			submitForm(e);
+		}}
+	>
+		{stepError && (
+			<p
+				className="error"
+				style={{
+					color: "rgb(var(--error))",
+				}}
+			>
+				{stepError}
+			</p>
+		)}
+		{step === 0 && (
+			<>
+				<label className={styles.label} htmlFor="fullname">
+					Full Name
+				</label>
+				<input
+					className={styles.input}
+					type="text"
+					name="fullname"
+					id="fullname"
+					placeholder="Full name (required)"
+					required
+					value={data.name}
+					onChange={e => {
+						setData({ ...data, name: e.target.value });
+					}}
+				/>
 
-const Input = styled.input`
-	padding: 0.5em;
-	border: 1px solid rgba(var(--text), 0.2);
-	background-color: rgb(var(--background));
-	color: rgb(var(--text));
-	border-radius: 0.5em;
-	font-size: 1em;
-	font-weight: 500;
-	outline: none;
-	transition: all 0.2s ease-in-out;
+				<label className={styles.label} htmlFor="email">
+					Email
+				</label>
+				<input
+					className={styles.input}
+					type="email"
+					name="email"
+					id="email"
+					placeholder="Email (required)"
+					required
+					value={data.email}
+					onChange={e => {
+						setData({ ...data, email: e.target.value });
+					}}
+				/>
+			</>
+		)}
 
-	&:focus {
-		border: 1px solid rgb(var(--text));
-	}
-`;
+		{step === 1 && (
+			<>
+				<label className={styles.label} htmlFor="company">
+					Company
+				</label>
+				<input
+					className={styles.input}
+					type="text"
+					name="company"
+					id="company"
+					placeholder="Company Name"
+					value={data.company}
+					onChange={e => {
+						setData({ ...data, company: e.target.value });
+					}}
+				/>
+			</>
+		)}
 
-const Textarea = styled.textarea`
-	padding: 0.5em;
-	border: 1px solid rgba(var(--text), 0.2);
-	background-color: rgb(var(--background));
-	color: rgb(var(--text));
-	border-radius: 0.5em;
-	font-size: 1em;
-	font-weight: 500;
-	outline: none;
-	transition: all 0.2s ease-in-out;
+		{step === 2 && (
+			<>
+				<label className={styles.label} htmlFor="message">
+					Message
+				</label>
+				<textarea
+					className={styles.textarea}
+					name="message"
+					placeholder="Message"
+					value={data.message}
+					onChange={e => {
+						setData({ ...data, message: e.target.value });
+					}}
+				/>
+			</>
+		)}
 
-	&:focus {
-		border: 1px solid rgb(var(--text));
-	}
-`;
+		{step === 3 && (
+			<div className={styles.lastScreenContainer}>
+				<h2
+					style={{
+						fontSize: "1.5em",
+					}}
+				>
+					Dear {data.name}!
+				</h2>
+				<p
+					style={{
+						fontSize: "1.2em",
+					}}
+				>
+					Thank you for your interest in working with me. I will get back to you
+					at {data.email} as soon as possible.
+				</p>
+				<button
+					type="submit"
+					className={
+						(success ? "success" : error ? "error" : "") + styles.button
+					}
+				>
+					{loading ? (
+						<div
+							style={{
+								display: "flex",
+								alignItems: "center",
+								gap: "1em",
+								justifyContent: "center",
+							}}
+						>
+							<Loader size={18} />
+							<span>Loading...</span>
+						</div>
+					) : (
+						error || (success ? "Sent!" : "Send")
+					)}
+				</button>
+				{success && (
+					<div className={styles.splineContainer}>
+						<Airplane />
+					</div>
+				)}
+			</div>
+		)}
+	</form>
+);
 
-const Button = styled.button<{ error: boolean; success: boolean }>`
-	padding: 0.5em;
-	border: none;
-	border-radius: 0.5em;
-	background-color: rgb(var(--accent));
-	background-color: ${props => props.error && "rgb(var(--error))"};
-	background-color: ${props => props.success && "rgb(var(--success))"};
-	color: rgb(var(--background));
-	font-size: 1em;
-	font-weight: 500;
-	outline: none;
-	cursor: pointer;
-	transition: all 0.2s ease-in-out;
-
-	&:hover,
-	&:focus {
-		background-color: rgb(var(--accent-hover));
-		background-color: ${props => props.error && "rgb(var(--error))"};
-		background-color: ${props => props.success && "rgb(var(--success))"};
-	}
-`;
-
-const SplineContainer = styled.div`
-	position: absolute;
-	top: 0;
-	right: 0;
-	left: 0;
-	bottom: 0;
-	z-index: 1000;
-`;
+export default ContactForm;

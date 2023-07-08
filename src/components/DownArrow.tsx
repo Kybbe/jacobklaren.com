@@ -1,8 +1,10 @@
-import styled from "styled-components";
+import styles from "./DownArrow.module.scss";
 
 export default function DownArrow() {
 	return (
-		<StyledDownArrow
+		// eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+		<div
+			className={styles.arrow}
 			onClick={() => {
 				window.scrollTo({
 					top: window.innerHeight,
@@ -20,40 +22,6 @@ export default function DownArrow() {
 					strokeLinejoin="round"
 				/>
 			</svg>
-		</StyledDownArrow>
+		</div>
 	);
 }
-
-const StyledDownArrow = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	position: absolute;
-	bottom: -10px;
-	left: 50%;
-	transform: translateX(-50%);
-	z-index: 50;
-
-	height: 8em;
-	margin-top: 1em;
-	cursor: pointer;
-	animation: bobUpDown 5s ease-in-out infinite;
-
-	> svg {
-		width: 6em;
-		height: 6em;
-	}
-
-	@keyframes bobUpDown {
-		0% {
-			transform: translate(-50%, 0px);
-		}
-		50% {
-			transform: translate(-50%, 20px);
-		}
-		100% {
-			transform: translate(-50%, 0px);
-		}
-	}
-`;

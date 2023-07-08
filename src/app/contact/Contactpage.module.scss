@@ -1,0 +1,154 @@
+.main {
+  display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 2em;
+	padding-top: calc(var(--navbar-height) + 1em);
+
+	min-height: 100dvh;
+}
+
+.top {
+  display: flex;
+	flex-direction: column;
+	gap: 2em;
+	flex: 1;
+
+	@media (min-width: 900px) {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
+
+.bottom {
+  display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.counter {
+  font-size: 3em;
+	color: rgb(var(--text));
+	font-weight: 700;
+}
+
+.buttonContainer {
+  display: flex;
+	flex-direction: row;
+	gap: 1em;
+}
+
+.button {
+  padding: 0.5em 1em;
+	border: none;
+	border-radius: 0.5em;
+	background-color: rgb(var(--accent));
+	color: rgb(var(--background));
+	font-size: 1.2em;
+	font-weight: 500;
+	cursor: pointer;
+
+	transition: all 0.2s ease-in-out;
+
+	&:hover,
+	&:focus {
+		background-color: rgb(var(--accent-hover));
+	}
+}
+
+.previous {
+  background-color: transparent;
+  color: rgb(var(--text));
+  border: 1px solid rgb(var(--accent));
+  opacity: 0.6;
+
+  &:hover {
+    background-color: rgb(var(--accent-hover));
+    color: rgb(var(--background));
+    opacity: 1;
+  }
+}
+
+.next {
+  background-color: transparent;
+  color: rgb(var(--text));
+  border: 1px solid rgb(var(--accent));
+
+  &:hover {
+    background-color: rgb(var(--accent-hover));
+    color: rgb(var(--background));
+  }
+}
+
+.send {
+  background-color: rgb(var(--success));
+  color: rgb(var(--background));
+
+  &:hover,
+  &:focus {
+    background-color: rgb(var(--success-hover));
+  }
+}
+
+.textPart {
+  display: flex;
+	flex-direction: column;
+	gap: 1em;
+
+	width: 100%;
+
+	@media (min-width: 900px) {
+		width: 30%;
+	}
+}
+
+.title {
+  font-size: 1.5em;
+	color: rgb(var(--text));
+	font-weight: 700;
+	margin-bottom: 0.2em;
+
+	transition: all 0.2s ease-in-out;
+
+	@media (min-width: 900px) {
+		font-size: 2em;
+		margin-bottom: 0.5em;
+
+		&:hover,
+		&:focus {
+			font-size: 2.1em !important;
+		}
+	}
+
+	&:hover,
+	&:focus {
+		font-size: 1.6em;
+	}
+}
+
+.accent {
+  color: rgb(var(--accent));
+}
+
+.subtitle {
+  font-size: 1.2em;
+	color: rgb(var(--text));
+	font-weight: 500;
+
+	transition: all 0.2s ease-in-out;
+
+	@media (min-width: 900px) {
+		font-size: 1.4em;
+
+		&:hover,
+		&:focus {
+			font-size: 1.5em !important;
+		}
+	}
+
+	&:hover,
+	&:focus {
+		font-size: 1.3em;
+	}
+}

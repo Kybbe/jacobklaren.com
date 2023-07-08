@@ -14,7 +14,11 @@ body {
   --accent-hover: 145, 77, 214;
 
   --success: 0, 158, 115;
+  --success-hover: 0, 178, 135;
   --error: 255, 69, 58;
+  --error-hover: 255, 89, 78;
+
+  --spider: 70, 12, 12;
 }
 
 body.dark {
@@ -22,12 +26,11 @@ body.dark {
   --background-hover: 24, 24, 24;
   --text: 245, 245, 245;
   --text-hover: 220, 220, 220;
-
+  
   --accent: 145, 77, 214;
   --accent-hover: 115, 47, 183;
-
-  --success: 0, 158, 115;
-  --error: 255, 69, 58;
+  
+  --spider: 255, 180, 180;
 }
 
 * {

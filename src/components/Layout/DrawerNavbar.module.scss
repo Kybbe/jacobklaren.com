@@ -1,0 +1,60 @@
+.hamburgerMenu {
+  background: transparent !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+
+  padding-top: 0.5em;
+
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0px 0px 10px rgba(var(--text), 0.25);
+
+  h1 {
+    color: rgb(var(--accent));
+    padding: 0.2em 1em;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 600px) {
+    width: 100% !important;
+  }
+}
+
+.lightenBackground {
+  backdrop-filter: brightness(1.5) blur(10px);
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  flex: 1;
+  width: 100%;
+}
+
+.ul {
+  display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	gap: 1em;
+
+	list-style: none;
+}
+
+.navLink {
+  color: var(--color-text);
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 2em;
+
+	&:hover,
+	&:focus {
+		color: rgb(var(--color-accent));
+		text-decoration: underline;
+	}
+}

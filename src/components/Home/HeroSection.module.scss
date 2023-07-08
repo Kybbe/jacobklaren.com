@@ -1,0 +1,158 @@
+.row {
+  display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+	overflow: hidden;
+	position: relative;
+
+	height: 100vh;
+	height: calc(100vh - env(safe-area-inset-bottom));
+
+	@media (min-width: 900px) {
+		flex-direction: row;
+		justify-content: space-evenly;
+	}
+}
+
+.col {
+  display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 0.2em;
+
+	@media (min-width: 900px) {
+		gap: 1em;
+
+		&.imageContainerCol {
+			width: 40%;
+		}
+	}
+}
+
+.title {
+  font-size: 2.5em;
+	color: rgb(var(--text));
+	font-weight: 700;
+	margin-bottom: 0.2em;
+
+	transition: all 0.2s ease-in-out;
+
+	@media (min-width: 900px) {
+		font-size: 3em;
+		margin-bottom: 0.5em;
+
+		&:hover,
+		&:focus {
+			font-size: 3.1em !important;
+		}
+	}
+
+	&:hover,
+	&:focus {
+		font-size: 2.6em;
+	}
+}
+
+.accentText {
+  color: rgb(var(--accent));
+}
+
+.subtitle {
+  font-size: 1.5em;
+	color: rgb(var(--text));
+	font-weight: 500;
+
+	transition: all 0.2s ease-in-out;
+
+	@media (min-width: 900px) {
+		font-size: 2em;
+
+		&:hover,
+		&:focus {
+			font-size: 2.1em !important;
+		}
+	}
+
+	&:hover,
+	&:focus {
+		font-size: 1.6em;
+	}
+}
+
+.styledImage {
+  filter: drop-shadow(0px 0px 10px rgba(var(--text), 0.25));
+	transform: none;
+	transition: all 0.2s ease-in-out;
+	padding: 0em;
+	height: 50vh;
+	object-fit: cover;
+	object-position: top;
+	overflow: hidden;
+
+	&:hover,
+	&:focus {
+		filter: none;
+
+		transform: scale(1.02) rotate(2deg) translateX(10px) translateY(-10px);
+	}
+
+	@media (min-width: 900px) {
+		padding: 1em;
+		height: auto;
+		width: 100%;
+	}
+}
+
+.buttonContainer {
+  display: flex;
+	flex-direction: column;
+	width: fit-content;
+	gap: 1em;
+
+	@media (min-width: 550px) {
+		align-items: center;
+		flex-direction: row;
+		gap: 1em;
+	}
+}
+
+.buttonDivider {
+  font-size: 1.2em;
+	color: rgb(var(--text));
+	font-weight: 500;
+	text-align: center;
+
+	@media (min-width: 900px) {
+		font-size: 1.5em;
+	}
+}
+
+.downloadResumeButton {
+  display: flex;
+	align-items: center;
+	font-size: 1em;
+	font-weight: 500;
+	color: rgb(var(--accent));
+	text-decoration: none;
+	width: fit-content;
+	white-space: nowrap;
+	transition: all 0.2s ease-in-out;
+
+	svg {
+		transform: translateY(0px);
+		transition: all 0.2s ease-in-out;
+	}
+
+	&:hover,
+	&:focus {
+		svg {
+			transform: translateY(5px);
+		}
+	}
+
+	@media (min-width: 900px) {
+		font-size: 1.2em;
+	}
+}

@@ -1,3 +1,6 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 /* eslint-disable react/no-array-index-key */
 import { FC, useEffect } from "react";
 import styled from "styled-components";
@@ -27,15 +30,22 @@ const SpinningLetterWords: FC<Props> = ({
 	underline,
 	disabled,
 }) => {
+	const pathname = usePathname();
+
 	useEffect(() => {
 		setTimeout(() => {
 			const italicLetters = document.querySelectorAll(".italicLetters");
 
 			italicLetters.forEach((letter: Element) => {
+				const alreadyContainsClass = letter.classList.contains(
+					"italicOpacityAnimated"
+				);
+				if (alreadyContainsClass) return;
+
 				letter.classList.add("italicOpacityAnimated");
 			});
 		}, 500);
-	}, []);
+	}, [pathname]);
 
 	return (
 		<MainContainer
