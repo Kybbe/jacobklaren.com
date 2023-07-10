@@ -143,7 +143,8 @@ const ContactForm: FC<Props> = ({
 				<button
 					type="submit"
 					className={
-						(success ? "success" : error ? "error" : "") + styles.button
+						(success ? styles.success : error ? styles.error : "") +
+						styles.button
 					}
 				>
 					{loading ? (

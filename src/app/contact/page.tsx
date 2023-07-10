@@ -13,6 +13,8 @@ export default function Contact() {
 	const [error, setError] = useState<boolean | string>(false);
 	const [success, setSuccess] = useState(false);
 
+	const [sent, setSent] = useState(false);
+
 	const [data, setData] = useState({
 		name: "",
 		email: "",
@@ -60,6 +62,7 @@ export default function Contact() {
 
 		setTimeout(() => {
 			setSuccess(false);
+			setSent(true);
 		}, 7000);
 	}
 
@@ -119,43 +122,57 @@ export default function Contact() {
 					</h2>
 				</div>
 
-				<ContactForm
-					step={step}
-					loading={loading}
-					success={success}
-					error={error}
-					stepError={stepError}
-					submitForm={e => submitForm(e)}
-					data={data}
-					setData={setData}
-				/>
+				{!sent && (
+					<ContactForm
+						step={step}
+						loading={loading}
+						success={success}
+						error={error}
+						stepError={stepError}
+						submitForm={e => submitForm(e)}
+						data={data}
+						setData={setData}
+					/>
+				)}
 			</div>
 
 			<div className={styles.bottom}>
-				<p className={styles.counter}>
-					{step + 1} / {totalSteps}
-				</p>
+				{sent ? (
+					<div className={styles.sent}>
+						<h1 className={styles.title}>Thank you!</h1>
+						<h2 className={styles.subtitle}>
+							I'll get back to you as soon as possible.
+						</h2>
+					</div>
+				) : (
+					<>
+						<p className={styles.counter}>
+							{step + 1} / {totalSteps}
+						</p>
 
-				<div className={styles.buttonContainer}>
-					{step > 0 && (
-						<button
-							type="button"
-							className={`${styles.button} ${styles.previous}`}
-							onClick={() => previousStep()}
-						>
-							Previous
-						</button>
-					)}
-					{step < totalSteps - 1 && (
-						<button
-							type="button"
-							className={`${styles.button} ${styles.next}`}
-							onClick={() => nextStep()}
-						>
-							Next
-						</button>
-					)}
-				</div>
+						<div className={styles.buttonContainer}>
+							{step > 0 && (
+								<button
+									tabIndex={-1}
+									type="button"
+									className={`${styles.button} ${styles.previous}`}
+									onClick={() => previousStep()}
+								>
+									Previous
+								</button>
+							)}
+							{step < totalSteps - 1 && (
+								<button
+									type="button"
+									className={`${styles.button} ${styles.next}`}
+									onClick={() => nextStep()}
+								>
+									Next
+								</button>
+							)}
+						</div>
+					</>
+				)}
 			</div>
 		</main>
 	);
