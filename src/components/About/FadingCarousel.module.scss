@@ -23,4 +23,11 @@
 .active {
   opacity: 1;
   z-index: 1;
+
+	animation: fadein 1s;
+
+}
+
+.last {
+	// the card that was active before the current one
 }

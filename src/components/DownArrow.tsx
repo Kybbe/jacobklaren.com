@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./DownArrow.module.scss";
 
 export default function DownArrow() {
