@@ -9,7 +9,7 @@ export default function Home() {
 			<Showcase
 				title="Scouterna"
 				description="The Scouts are a democratic children's and youth organization based on the scout method. The Scouts are non-religious and welcome everyone who can stand behind their core values."
-				image="/images/projects/scouterna.webp"
+				image="/images/projects/Scouterna.webp"
 				content="Scouterna är en demokratisk barn- och ungdomsorganisation som bygger på scoutmetoden. Scouterna är partipolitiskt och religiöst obundna och välkomnar alla som kan ställa sig bakom vår värdegrund."
 				technologies={[
 					"React",
@@ -42,7 +42,7 @@ export default function Home() {
 				title="Mimbly"
 				description="Mimbly is a cleantech company from Gothenburg. Starting in 2023, Mimbly designs and launches its laundry innovations in Gothenburg, Sweden. Their achievements over the years are what propels them from startup to scaleup."
 				content="Mimbly is a cleantech company from Gothenburg. Starting in 2023, Mimbly designs and launches its laundry innovations in Gothenburg, Sweden. Their achievements over the years are what propels them from startup to scaleup."
-				image="/images/projects/mimbly.webp"
+				image="/images/projects/Mimbly.webp"
 				technologies={[
 					"React",
 					"Next.js",
@@ -136,7 +136,7 @@ export default function Home() {
 				title="Scruit"
 				description="Scruit is a Kanban board similar to Github Projects. Scruit is my first application that uses drag and drop."
 				content="Scruit is a Kanban board similar to Github Projects. Scruit is my first application that uses drag and drop."
-				image="/images/projects/scruit.webp"
+				image="/images/projects/Scruit.webp"
 				technologies={[
 					"React",
 					"TypeScript",
