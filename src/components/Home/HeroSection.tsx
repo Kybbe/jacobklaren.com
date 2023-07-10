@@ -33,7 +33,7 @@ export default function HeroSection() {
 
 					<a
 						className={styles.downloadResumeButton}
-						href="/files/JacobKlarenCV.pdf"
+						href="/Jacob_Klaren_CV.pdf"
 						download
 					>
 						<DownloadIcon color="rgb(var(--accent))" size="2em" />
