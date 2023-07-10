@@ -55,14 +55,24 @@ export default function Showcase({
 				</div>
 
 				<div className={styles.buttonContainer}>
-					<Link
+					{/* <Link
 						className={styles.viewButton}
 						href={`/project/${title}`}
 						target="_blank"
 						rel="noreferrer"
 					>
 						Read more
-					</Link>
+					</Link> */}
+					{liveURL && (
+						<Link
+							className={styles.viewButton}
+							href={liveURL}
+							target="_blank"
+							rel="noreferrer"
+						>
+							View Live
+						</Link>
+					)}
 				</div>
 
 				<div className={styles.sectionContent}>
@@ -82,7 +92,7 @@ export default function Showcase({
 			<div className={styles.right}>
 				<p>{timespan}</p>
 				<p>{projectRole}</p>
-				{liveURL && (
+				{/* {liveURL && (
 					<a
 						className={styles.gitLiveLink}
 						href={liveURL}
@@ -98,7 +108,7 @@ export default function Showcase({
 						</svg>
 						<p>Live site</p>
 					</a>
-				)}
+				)} */}
 				{githubURL && (
 					<a
 						className={styles.gitLiveLink}

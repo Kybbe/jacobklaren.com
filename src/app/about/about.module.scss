@@ -1,11 +1,15 @@
 .container {
   padding: 1em;
-	padding-top: calc(var(--navbar-height) + 1em);
+	padding-top: 1em;
 	max-width: var(--max-width);
 	margin: auto;
 	display: flex;
 	flex-direction: column;
 	gap: 1em;
+
+	@media (min-width: 900px) {
+		padding-top: calc(var(--navbar-height) + 1em);
+	}
 }
 
 .headerSection {
