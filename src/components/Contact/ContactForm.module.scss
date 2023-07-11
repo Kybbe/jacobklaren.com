@@ -84,24 +84,25 @@
 	&:focus {
 		background-color: rgb(var(--accent-hover));
 	}
+}
 
-  &.error {
-    background-color: rgb(var(--error));
+.success {
+	background-color: rgb(var(--success));
+	cursor: default;
 
-    &:hover,
-    &:focus {
-      background-color: rgb(var(--error-hover));
-    }
-  }
+	&:hover,
+	&:focus {
+		background-color: rgb(var(--success));
+	}
+}
 
-  &.success {
-    background-color: rgb(var(--success));
+.error {
+	background-color: rgb(var(--error));
 
-    &:hover,
-    &:focus {
-      background-color: rgb(var(--success-hover));
-    }
-  }
+	&:hover,
+	&:focus {
+		background-color: rgb(var(--error-hover));
+	}
 }
 
 .lastScreenContainer {
