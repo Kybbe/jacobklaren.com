@@ -13,12 +13,10 @@ export default function FadingCarousel({
 	childStyle?: React.CSSProperties;
 }) {
 	const [activeIndex, setActiveIndex] = useState(0);
-	const [lastIndex, setLastIndex] = useState(0);
 
 	useEffect(() => {
 		const autoRotate = () => {
 			setActiveIndex((activeIndex + 1) % children.length);
-			setLastIndex(activeIndex);
 		};
 
 		const interval = setInterval(autoRotate, 5000);
@@ -29,11 +27,12 @@ export default function FadingCarousel({
 		<div style={containerStyle} className={styles.container}>
 			{children.map((child: ReactNode, index: number) => (
 				<div
-					key={Math.random()}
+					// eslint-disable-next-line react/no-array-index-key
+					key={index}
 					style={childStyle}
 					className={`${styles.child} ${
 						index === activeIndex ? styles.active : ""
-					} ${index === lastIndex ? styles.last : ""}`}
+					}`}
 				>
 					{child}
 				</div>

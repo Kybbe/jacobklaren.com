@@ -44,6 +44,7 @@ export default function About() {
 							height={350}
 							style={{
 								borderRadius: "0.5em",
+								width: "100%",
 							}}
 						/>
 						<Image
@@ -53,6 +54,7 @@ export default function About() {
 							height={350}
 							style={{
 								borderRadius: "0.5em",
+								width: "100%",
 							}}
 						/>
 						<Image
@@ -62,6 +64,7 @@ export default function About() {
 							height={350}
 							style={{
 								borderRadius: "0.5em",
+								width: "100%",
 							}}
 						/>
 					</FadingCarousel>
