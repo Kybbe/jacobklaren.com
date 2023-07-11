@@ -4,11 +4,12 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Showcase.module.scss";
+import FadingCarousel from "./About/FadingCarousel";
 
 interface Props {
 	title: string;
 	description: string;
-	image: string;
+	images: string[];
 	content: string;
 	technologies: string[];
 	timespan: string;
@@ -20,7 +21,7 @@ interface Props {
 export default function Showcase({
 	title,
 	description,
-	image,
+	images,
 	content,
 	technologies,
 	timespan,
@@ -45,13 +46,17 @@ export default function Showcase({
 			<div className={styles.left}>
 				<h2 className={styles.title}>{title}</h2>
 				<div className={styles.imageContainer}>
-					<Image
-						className={styles.image}
-						src={image}
-						alt={title}
-						width={1000}
-						height={1000}
-					/>
+					<FadingCarousel rotateInterval={4000}>
+						{images.map((image: string) => (
+							<Image
+								className={styles.image}
+								src={image}
+								alt={title}
+								width={1000}
+								height={1000}
+							/>
+						))}
+					</FadingCarousel>
 				</div>
 
 				<div className={styles.buttonContainer}>

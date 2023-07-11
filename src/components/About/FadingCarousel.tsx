@@ -7,10 +7,12 @@ export default function FadingCarousel({
 	children,
 	containerStyle,
 	childStyle,
+	rotateInterval = 5000,
 }: {
 	children: ReactNode[];
 	containerStyle?: React.CSSProperties;
 	childStyle?: React.CSSProperties;
+	rotateInterval?: number;
 }) {
 	const [activeIndex, setActiveIndex] = useState(0);
 
@@ -19,9 +21,9 @@ export default function FadingCarousel({
 			setActiveIndex((activeIndex + 1) % children.length);
 		};
 
-		const interval = setInterval(autoRotate, 5000);
+		const interval = setInterval(autoRotate, rotateInterval);
 		return () => clearInterval(interval);
-	}, [activeIndex, children.length]);
+	}, [activeIndex, children.length, rotateInterval]);
 
 	return (
 		<div style={containerStyle} className={styles.container}>
