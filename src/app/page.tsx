@@ -194,7 +194,6 @@ export default function Home() {
 				/* liveURL="https://feit-dashboard.fly.dev/" */
 				projectRole="Fullstack Developer"
 			/>
-			
 		</main>
 	);
 }

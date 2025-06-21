@@ -17,29 +17,29 @@ export default function ThemeSwitcher() {
 		dispatch(toggleTheme());
 	}
 
-	function checkPrefersColorScheme() {
-		if (theme === "dark") {
-			document.body.classList.add("dark");
-		}
-
-		if (
-			window.matchMedia("(prefers-color-scheme: dark)").matches &&
-			theme === ""
-		) {
-			document.body.classList.add("dark");
-			dispatch(setTheme("dark"));
-		} else if (
-			window.matchMedia("(prefers-color-scheme: light)").matches &&
-			theme === ""
-		) {
-			document.body.classList.remove("dark");
-			dispatch(setTheme("light"));
-		}
-	}
-
 	useEffect(() => {
+		function checkPrefersColorScheme() {
+			if (theme === "dark") {
+				document.body.classList.add("dark");
+			}
+
+			if (
+				window.matchMedia("(prefers-color-scheme: dark)").matches &&
+				theme === ""
+			) {
+				document.body.classList.add("dark");
+				dispatch(setTheme("dark"));
+			} else if (
+				window.matchMedia("(prefers-color-scheme: light)").matches &&
+				theme === ""
+			) {
+				document.body.classList.remove("dark");
+				dispatch(setTheme("light"));
+			}
+		}
+
 		checkPrefersColorScheme();
-	}, [theme]);
+	}, [theme, dispatch]);
 
 	return (
 		<div className={styles.container}>
