@@ -68,7 +68,7 @@ export default function Home() {
 					"Rest API",
 				]}
 				timespan="Sep 2022 - Jan 2023"
-				liveURL="https://mimbly-frontend.azurewebsites.net/"
+				/* liveURL="https://mimbly-frontend.azurewebsites.net/" */
 				projectRole="Frontend Developer"
 			/>
 			<Showcase
@@ -98,7 +98,7 @@ export default function Home() {
 					"Rest API",
 				]}
 				timespan="Mar 2023 - Jun 2023"
-				liveURL="https://www.frontedgeit.se/"
+				/* liveURL="https://www.frontedgeit.se/" */
 				projectRole="Fullstack Developer"
 			/>
 			<Showcase
@@ -118,7 +118,7 @@ export default function Home() {
 					"Github Actions",
 				]}
 				timespan="Jan 2021 - Jun 2021"
-				liveURL="https://iamagame.fly.dev/"
+				/* liveURL="https://iamagame.fly.dev/" */
 				githubURL="https://github.com/Hargaaya/IAmAGame-Frontend"
 				projectRole="Fullstack Developer"
 			/>
@@ -167,6 +167,17 @@ export default function Home() {
 				projectRole="Fullstack Developer"
 			/>
 			<Showcase
+				title="Todo"
+				description="Todo is a todo application that allows multiple lists, saving everything locally."
+				content="Todo is a todo application that allows multiple lists, saving everything locally."
+				images={["/images/projects/todo.webp"]}
+				technologies={["Vanilla JS", "Javascript", "HTML", "CSS"]}
+				timespan="Aug 2021 - Aug 2021"
+				liveURL="http://todo.jacobklaren.com/"
+				githubURL="https://github.com/Kybbe/To-do"
+				projectRole="Frontend Developer"
+			/>
+			<Showcase
 				title="Frontedge dashboard"
 				description="Frontedge dashboard is a small project for a spare screen at the Frontedge IT office. The dashboard shows the weather, the time, the date and departures from the nearest bus stop in realtime."
 				content="Frontedge dashboard is a small project for a spare screen at the Frontedge IT office. The dashboard shows the weather, the time, the date and departures from the nearest bus stop in realtime."
@@ -180,20 +191,10 @@ export default function Home() {
 					"CSS",
 				]}
 				timespan="Mar 2022 - Mar 2022"
-				liveURL="https://feit-dashboard.fly.dev/"
+				/* liveURL="https://feit-dashboard.fly.dev/" */
 				projectRole="Fullstack Developer"
 			/>
-			<Showcase
-				title="Todo"
-				description="Todo is a todo application that allows multiple lists, saving everything locally."
-				content="Todo is a todo application that allows multiple lists, saving everything locally."
-				images={["/images/projects/todo.webp"]}
-				technologies={["Vanilla JS", "Javascript", "HTML", "CSS"]}
-				timespan="Aug 2021 - Aug 2021"
-				liveURL="http://todo.jacobklaren.com/"
-				githubURL="https://github.com/Kybbe/To-do"
-				projectRole="Frontend Developer"
-			/>
+			
 		</main>
 	);
 }
