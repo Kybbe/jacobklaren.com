@@ -19,6 +19,13 @@ body {
   --error-hover: 255, 89, 78;
 
   --spider: 70, 12, 12;
+
+  --purple: 115, 47, 183;
+  --yellow: 194, 254, 11;
+  --blue: 57, 151, 255;
+  --red: 255, 69, 58;
+  --green: 0, 158, 115;
+  --pink: 255, 0, 255;
 }
 
 body.dark {
@@ -32,6 +39,127 @@ body.dark {
   
   --spider: 255, 180, 180;
 }
+
+body.yellow.dark {
+  --background: 41, 50, 79;
+  --background-hover: 50, 60, 100;
+  --text: 245, 245, 245;
+  --text-hover: 220, 220, 220;
+
+  --accent: 194, 254, 11;
+  --accent-hover: 174, 230, 10;
+
+  --spider: 255, 180, 180;
+}
+
+body.yellow {
+  --background: 237, 235, 233;
+  --background-hover: 220, 220, 220;
+  --text: 12, 12, 12;
+  --text-hover: 24, 24, 24;
+
+  --accent: 194, 254, 11;
+  --accent-hover: 174, 230, 10;
+
+  --spider: 70, 12, 12;
+}
+
+body.blue.dark {
+  --background: 12, 12, 12;
+  --background-hover: 24, 24, 24;
+  --text: 245, 245, 245;
+  --text-hover: 220, 220, 220;
+
+  --accent: 57, 151, 255;
+  --accent-hover: 67, 131, 235;
+
+  --spider: 255, 180, 180;
+}
+
+body.blue {
+  --background: 237, 235, 233;
+  --background-hover: 220, 220, 220;
+  --text: 12, 12, 12;
+  --text-hover: 24, 24, 24;
+
+  --accent: 57, 151, 255;
+  --accent-hover: 67, 131, 235;
+
+  --spider: 70, 12, 12;
+}
+
+body.red.dark {
+  --background: 12, 12, 12;
+  --background-hover: 24, 24, 24;
+  --text: 245, 245, 245;
+  --text-hover: 220, 220, 220;
+
+  --accent: 255, 69, 58;
+  --accent-hover: 235, 49, 38;
+
+  --spider: 255, 180, 180;
+}
+
+body.red {
+  --background: 237, 235, 233;
+  --background-hover: 220, 220, 220;
+  --text: 12, 12, 12;
+  --text-hover: 24, 24, 24;
+
+  --accent: 255, 29, 28;
+  --accent-hover: 235, 39, 38;
+
+  --spider: 70, 12, 12;
+}
+
+body.green.dark {
+  --background: 12, 12, 12;
+  --background-hover: 24, 24, 24;
+  --text: 245, 245, 245;
+  --text-hover: 220, 220, 220;
+
+  --accent: 0, 248, 85;
+  --accent-hover: 0, 228, 65;
+
+  --spider: 255, 180, 180;
+}
+
+body.green {
+  --background: 237, 235, 233;
+  --background-hover: 220, 220, 220;
+  --text: 12, 12, 12;
+  --text-hover: 24, 24, 24;
+
+  --accent: 0, 158, 115;
+  --accent-hover: 0, 138, 95;
+
+  --spider: 70, 12, 12;
+}
+
+body.pink.dark {
+  --background: 12, 12, 12;
+  --background-hover: 24, 24, 24;
+  --text: 245, 245, 245;
+  --text-hover: 220, 220, 220;
+
+  --accent: 255, 0, 255;
+  --accent-hover: 235, 35, 75;
+
+  --spider: 255, 180, 180;
+}
+
+body.pink {
+  --background: 237, 235, 233;
+  --background-hover: 220, 220, 220;
+  --text: 12, 12, 12;
+  --text-hover: 24, 24, 24;
+
+  --accent: 255, 0, 255;
+  --accent-hover: 235, 35, 75;
+
+  --spider: 70, 12, 12;
+}
+
 
 * {
   box-sizing: border-box;

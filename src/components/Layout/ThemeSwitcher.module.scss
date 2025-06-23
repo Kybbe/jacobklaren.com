@@ -30,3 +30,56 @@
 		background-color: rgb(var(--accent));
 	}
 }
+
+.colorButton {
+	background-color: rgb(var(--accent));
+	border: none;
+	border-radius: 50%;
+	width: 1.2em;
+	height: 1.2em;
+	font-size: 1.4rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	cursor: pointer;
+
+	transition: background-color 0.2s ease-in-out;
+}
+
+.colorButton.nextColorPurple {
+	&:hover,
+	&:focus {
+		background-color: rgb(var(--purple));
+	}
+}
+.colorButton.nextColorYellow {
+	&:hover,
+	&:focus {
+		background-color: rgb(var(--yellow));
+	}
+}
+.colorButton.nextColorBlue {
+	&:hover,
+	&:focus {
+		background-color: rgb(var(--blue));
+	}
+}
+.colorButton.nextColorRed {
+	&:hover,
+	&:focus {
+		background-color: rgb(var(--red));
+	}
+}
+.colorButton.nextColorGreen {
+	&:hover,
+	&:focus {
+		background-color: rgb(var(--green));
+	}
+}
+.colorButton.nextColorPink {
+	&:hover,
+	&:focus {
+		background-color: rgb(var(--pink));
+	}
+}
