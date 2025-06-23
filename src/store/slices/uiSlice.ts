@@ -2,7 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
 	theme: "" as "dark" | "light" | "",
-	colorTheme: "purple" as "purple" | "yellow" | "blue" | "red" | "green" | "pink",
+	colorTheme: "purple" as
+		| "purple"
+		| "yellow"
+		| "blue"
+		| "red"
+		| "green"
+		| "pink",
 };
 
 const uiSlice = createSlice({

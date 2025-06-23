@@ -6,25 +6,16 @@ import { setColorTheme, setTheme, toggleTheme } from "@/store/slices/uiSlice";
 import { useEffect } from "react";
 import styles from "./ThemeSwitcher.module.scss";
 
-const darkThemeColors = [
-	"purple",
-	"yellow",
-	"blue",
-	"red",
-	"green",
-	"pink",
-];
-const lightThemeColors = [
-	"purple",
-	"blue",
-	"red",
-	"green",
-	"pink",
-];
+const darkThemeColors = ["purple", "yellow", "blue", "red", "green", "pink"];
+const lightThemeColors = ["purple", "blue", "red", "green", "pink"];
 
 function getNextColorTheme(currentColor: string, isDarkTheme: boolean) {
-	const currentIndex = isDarkTheme ? darkThemeColors.indexOf(currentColor) : lightThemeColors.indexOf(currentColor);
-	const nextIndex = (currentIndex + 1) % (isDarkTheme ? darkThemeColors.length : lightThemeColors.length);
+	const currentIndex = isDarkTheme
+		? darkThemeColors.indexOf(currentColor)
+		: lightThemeColors.indexOf(currentColor);
+	const nextIndex =
+		(currentIndex + 1) %
+		(isDarkTheme ? darkThemeColors.length : lightThemeColors.length);
 	return isDarkTheme ? darkThemeColors[nextIndex] : lightThemeColors[nextIndex];
 }
 
