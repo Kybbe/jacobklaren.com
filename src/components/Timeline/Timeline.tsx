@@ -8,7 +8,7 @@ const getYearGuides = (start: number, end: number) => {
 	const guides = [];
 	const startYear = new Date(start).getFullYear();
 	const endYear = new Date(end).getFullYear();
-	for (let y = startYear + 1; y <= endYear; y++) {
+	for (let y = startYear + 1; y <= endYear; y + 1) {
 		const yearTime = new Date(y, 0, 1).getTime();
 		const percent = ((yearTime - start) / (end - start)) * 100;
 		guides.push({ year: y, percent });
@@ -137,13 +137,13 @@ export const Timeline: React.FC<TimelineProps> = ({
 					const spanStart = positions[i];
 					let spanEnd: number | null = null;
 					if (hasSpan) {
-						if (node.span!.end === "Present") {
+						if (node.span.end === "Present") {
 							spanEnd =
 								((Date.now() - timelineStart) / (timelineEnd - timelineStart)) *
 								100;
 						} else {
 							spanEnd =
-								(((node.span!.end as number) - timelineStart) /
+								(((node.span.end as number) - timelineStart) /
 									(timelineEnd - timelineStart)) *
 								100;
 						}
@@ -190,7 +190,7 @@ export const Timeline: React.FC<TimelineProps> = ({
 									}`}
 									style={{
 										left: `${spanStart}%`,
-										width: `${spanEnd! - spanStart}%`,
+										width: `${(spanEnd ?? 0) - spanStart}%`,
 										cursor: "pointer",
 										zIndex,
 									}}
@@ -202,9 +202,16 @@ export const Timeline: React.FC<TimelineProps> = ({
 							)}
 							{/* Node in the middle of the span, or at position if no span */}
 							<div
+								role="button"
+								tabIndex={0}
 								className={`${styles.timelineNode}`}
 								style={{ left: `${hasSpan ? middle : positions[i]}%` }}
 								onClick={() => onNodeClick?.(node.id)}
+								onKeyDown={e => {
+									if (e.key === "Enter") {
+										onNodeClick?.(node.id);
+									}
+								}}
 								onMouseEnter={() => {
 									setHoveredId(node.id);
 									onNodeHover?.(node.id);
