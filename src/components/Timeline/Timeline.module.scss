@@ -1,0 +1,181 @@
+.timelineContainer {
+  position: relative;
+  width: 95vw;
+  max-width: 95vw;
+  margin: 0 auto;
+  padding: 80px 0 40px 0; // Increased top padding
+}
+
+.timelineBar {
+  position: relative;
+  height: 6px;
+  background: linear-gradient(90deg, #e0e0e0 0%, #bdbdbd 100%);
+  border-radius: 3px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.timelineNode {
+  position: absolute;
+  top: -18px;
+  transform: translateX(-50%);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.nodeCircle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.2);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: filter 0.2s;
+}
+
+.nodeCircle--scouterna { background: #003660;
+  &:hover {
+    filter: brightness(1.2) drop-shadow(0 0 6px #003660);
+  }
+}
+.nodeCircle--mimbly { background: #43a047;
+  &:hover {
+    filter: brightness(1.2) drop-shadow(0 0 6px #43a047);
+  }
+}
+.nodeCircle--frontedgeit { background: #009688;
+  &:hover {
+    filter: brightness(1.2) drop-shadow(0 0 6px #009688);
+  }
+}
+.nodeCircle--foodlist { background: #b3e5fc;
+  &:hover {
+    filter: brightness(1.2) drop-shadow(0 0 6px #b3e5fc);
+  }
+}
+.nodeCircle--scruit { background: #000;
+  &:hover {
+    filter: brightness(1.2) drop-shadow(0 0 6px #000);
+  }
+}
+.nodeCircle--iamagame { background: #9c27b0;
+  &:hover {
+    filter: brightness(1.2) drop-shadow(0 0 6px #9c27b0);
+  }
+}
+.nodeCircle--todo { background: #607d8b;
+  &:hover {
+    filter: brightness(1.2) drop-shadow(0 0 6px #607d8b);
+  }
+}
+.nodeCircle--feitdashboard { background: #212121;
+  &:hover {
+    filter: brightness(1.2) drop-shadow(0 0 6px #212121);
+  }
+}
+
+.nodeLabel--scouterna { color: #003660 !important; }
+.nodeLabel--mimbly { color: #43a047 !important; }
+.nodeLabel--frontedgeit { color: #009688 !important; }
+.nodeLabel--foodlist { color: #b3e5fc !important; }
+.nodeLabel--scruit { color: #000 !important; }
+.nodeLabel--iamagame { color: #9c27b0 !important; }
+.nodeLabel--todo { color: #607d8b !important; }
+.nodeLabel--feitdashboard { color: #212121 !important; }
+
+.nodeLabel {
+  font-size: 0.95rem;
+  color: #333;
+  margin-top: 2px;
+  white-space: nowrap;
+}
+
+.timelineSpan {
+  position: absolute;
+  top: 8px;
+  height: 6px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.timelineSpanBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  border-radius: 3px;
+  z-index: 2;
+}
+
+.timelineSpanStart,
+.timelineSpanEnd {
+  position: absolute;
+  top: -4px;
+  width: 2px;
+  height: 14px;
+  background: #bdbdbd;
+  z-index: 3;
+}
+
+.timelineSpanStart {
+  left: 0;
+}
+.timelineSpanEnd {
+  right: 0;
+}
+
+.timelineSpan--scouterna { background: #00366022; }
+.timelineSpan--mimbly { background: #c8e6c9; }
+.timelineSpan--frontedgeit { background: #00968822; }
+.timelineSpan--foodlist { background: #b3e5fc; }
+.timelineSpan--scruit { background: #0002; }
+.timelineSpan--iamagame { background: #9c27b022; }
+.timelineSpan--todo { background: #cfd8dc; }
+.timelineSpan--feitdashboard { background: #21212122; }
+
+.timelineSpanLabel {
+  background: #fff;
+  box-shadow: 0 2px 8px #bbb;
+  border-radius: 6px;
+  padding: 4px 12px;
+  margin-top: 2px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.timelineSpanLabel--scouterna { color: #003660; }
+.timelineSpanLabel--mimbly { color: #43a047; }
+.timelineSpanLabel--frontedgeit { color: #009688; }
+.timelineSpanLabel--foodlist { color: #b3e5fc; }
+.timelineSpanLabel--scruit { color: #000; }
+.timelineSpanLabel--iamagame { color: #9c27b0; }
+.timelineSpanLabel--todo { color: #607d8b; }
+.timelineSpanLabel--feitdashboard { color: #212121; }
+
+.nodeTimeLabel { }
+.nodeTimeLabel--scouterna { color: #2196f3; }
+.nodeTimeLabel--mimbly { color: #43a047; }
+.nodeTimeLabel--frontedgeit { color: #ff9800; }
+.nodeTimeLabel--foodlist { color: #e91e63; }
+.nodeTimeLabel--scruit { color: #9c27b0; }
+.nodeTimeLabel--iamagame { color: #00bcd4; }
+.nodeTimeLabel--todo { color: #607d8b; }
+.nodeTimeLabel--feitdashboard { color: #f44336; }
+
+@media (max-width: 700px) {
+  .timelineContainer {
+    display: none;
+  }
+}
