@@ -1,10 +1,10 @@
 import Navbar from "@/components/Layout/Navbar";
 import "./globals.css";
-// eslint-disable-next-line camelcase
-import { Work_Sans } from "next/font/google";
-import { Providers } from "@/utils/ProviderFactory";
-import Footer from "@/components/Layout/Footer";
 import { Analytics } from "@vercel/analytics/next";
+import { Work_Sans } from "next/font/google";
+// eslint-disable-next-line camelcase
+import Footer from "@/components/Layout/Footer";
+import { Providers } from "@/utils/ProviderFactory";
 
 const WS = Work_Sans({ subsets: ["latin"] });
 

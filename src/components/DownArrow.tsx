@@ -4,9 +4,10 @@ import styles from "./DownArrow.module.scss";
 
 export default function DownArrow() {
 	return (
-		// eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
-		<div
+		<button
+			type="button"
 			className={styles.arrow}
+			aria-label="Scroll down"
 			onClick={() => {
 				window.scrollTo({
 					top: window.innerHeight,
@@ -24,6 +25,6 @@ export default function DownArrow() {
 					strokeLinejoin="round"
 				/>
 			</svg>
-		</div>
+		</button>
 	);
 }

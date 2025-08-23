@@ -1,7 +1,7 @@
 import Image from "next/image";
-import CTAButton from "./CTAButton";
 import DownArrow from "../DownArrow";
 import DownloadIcon from "../DownloadIcon";
+import CTAButton from "./CTAButton";
 import styles from "./HeroSection.module.scss";
 
 export default function HeroSection() {

@@ -1,9 +1,9 @@
 "use client";
 
+import { useEffect } from "react";
 import { useAppDispatch } from "@/hooks/redux/useAppDispatch";
 import { useAppSelector } from "@/hooks/redux/useAppSelector";
 import { setColorTheme, setTheme, toggleTheme } from "@/store/slices/uiSlice";
-import { useEffect } from "react";
 import styles from "./ThemeSwitcher.module.scss";
 
 const darkThemeColors = ["purple", "yellow", "blue", "red", "green", "pink"];
@@ -20,8 +20,8 @@ function getNextColorTheme(currentColor: string, isDarkTheme: boolean) {
 }
 
 export default function ThemeSwitcher() {
-	const theme = useAppSelector(state => state.ui.theme);
-	const colorTheme = useAppSelector(state => state.ui.colorTheme);
+	const theme = useAppSelector((state) => state.ui.theme);
+	const colorTheme = useAppSelector((state) => state.ui.colorTheme);
 
 	const dispatch = useAppDispatch();
 
@@ -77,7 +77,7 @@ export default function ThemeSwitcher() {
 			<button
 				className={`${styles.colorButton} nextColor${getNextColorTheme(
 					colorTheme,
-					theme === "dark"
+					theme === "dark",
 				)}`}
 				type="button"
 				onClick={() => switchColorTheme()}

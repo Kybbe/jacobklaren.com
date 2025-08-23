@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import styles from "./FadingCarousel.module.scss";
 
 export default function FadingCarousel({
@@ -27,18 +27,27 @@ export default function FadingCarousel({
 
 	return (
 		<div style={containerStyle} className={styles.container}>
-			{children.map((child: ReactNode, index: number) => (
-				<div
-					// eslint-disable-next-line react/no-array-index-key
-					key={index}
-					style={childStyle}
-					className={`${styles.child} ${
-						index === activeIndex ? styles.active : ""
-					}`}
-				>
-					{child}
-				</div>
-			))}
+			{children.map((child: ReactNode, index: number) => {
+				// Try to use child's key if available, otherwise fallback to a generated key
+				const key =
+					child &&
+					typeof child === "object" &&
+					"key" in child &&
+					child.key != null
+						? child.key
+						: `carousel-child-${index}`;
+				return (
+					<div
+						key={key}
+						style={childStyle}
+						className={`${styles.child} ${
+							index === activeIndex ? styles.active : ""
+						}`}
+					>
+						{child}
+					</div>
+				);
+			})}
 		</div>
 	);
 }

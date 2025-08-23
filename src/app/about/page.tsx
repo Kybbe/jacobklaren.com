@@ -1,5 +1,5 @@
-import FadingCarousel from "@/components/About/FadingCarousel";
 import Image from "next/image";
+import FadingCarousel from "@/components/About/FadingCarousel";
 import styles from "./about.module.scss";
 
 export default function About() {

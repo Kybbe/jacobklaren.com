@@ -1,19 +1,19 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Drawer from "react-modern-drawer";
 import { useAppSelector } from "@/hooks/redux/useAppSelector";
-import { usePathname } from "next/navigation";
-import ThemeSwitcher from "./ThemeSwitcher";
 import SpinningLetterWords from "../SpinningLetterWords";
+import ThemeSwitcher from "./ThemeSwitcher";
 import "react-modern-drawer/dist/index.css";
 import DrawerButton from "./DrawerButton";
 import styles from "./DrawerNavbar.module.scss";
 
 export default function DrawerNavbar() {
 	const [open, setOpen] = useState(false);
-	const theme = useAppSelector(state => state.ui.theme);
+	const theme = useAppSelector((state) => state.ui.theme);
 	const pathname = usePathname();
 
 	const isCurrentPath = (path: string) => pathname === path;
@@ -33,6 +33,7 @@ export default function DrawerNavbar() {
 		return () => window.removeEventListener("resize", handleResize);
 	}, []);
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <should rerun on pathname change>
 	useEffect(() => {
 		setOpen(false);
 	}, [pathname]);

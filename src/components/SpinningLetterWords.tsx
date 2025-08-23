@@ -32,13 +32,14 @@ const SpinningLetterWords: FC<Props> = ({
 }) => {
 	const pathname = usePathname();
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <should change on pathname, but is not in the function>
 	useEffect(() => {
 		setTimeout(() => {
 			const italicLetters = document.querySelectorAll(".italicLetters");
 
 			italicLetters.forEach((letter: Element) => {
 				const alreadyContainsClass = letter.classList.contains(
-					"italicOpacityAnimated"
+					"italicOpacityAnimated",
 				);
 				if (alreadyContainsClass) return;
 
@@ -64,7 +65,7 @@ const SpinningLetterWords: FC<Props> = ({
 								? { width: "0.2em" }
 								: { transitionDelay: `${index * 0.02}s` }
 						}
-						key={letter + index}
+						key={`${letter}-${index}-${word}`}
 					>
 						{letter}
 					</NormalLetter>
@@ -82,7 +83,7 @@ const SpinningLetterWords: FC<Props> = ({
 								: { transitionDelay: `${index * 0.02}s` }
 						}
 						className="italicLetters"
-						key={letter + index}
+						key={`${letter}-${index}-${word}`}
 					>
 						{letter}
 					</ItalicLetter>
@@ -98,15 +99,15 @@ const MainContainer = styled.div<LetterProps>`
 	position: relative;
 	white-space: nowrap;
 
-	cursor: ${props => (props.disabled ? "default" : "pointer")};
+	cursor: ${(props) => (props.disabled ? "default" : "pointer")};
 
 	&:before {
 		content: "";
 		position: absolute;
 		left: 0;
 		bottom: 0;
-		width: ${props => (props.underline === "underline" ? "100%" : "0%")};
-		border-bottom: ${props =>
+		width: ${(props) => (props.underline === "underline" ? "100%" : "0%")};
+		border-bottom: ${(props) =>
 			props.underline !== "none"
 				? `1px solid ${props.color || "rgb(var(--text))"}`
 				: "none"};
@@ -117,7 +118,7 @@ const MainContainer = styled.div<LetterProps>`
 	&:hover,
 	&:focus {
 		&:before {
-			width: ${props => (props.underline !== "none" ? "100%" : "0%")};
+			width: ${(props) => (props.underline !== "none" ? "100%" : "0%")};
 			left: 6px;
 		}
 	}
@@ -127,7 +128,7 @@ const MainContainer = styled.div<LetterProps>`
 		left: 6px;
 
 		> p {
-			opacity: ${props => (props.disabled ? "0" : "1")};
+			opacity: ${(props) => (props.disabled ? "0" : "1")};
 
 			transform: translate3d(0%, 0px, 0px) scale(1, 1);
 		}
@@ -135,9 +136,9 @@ const MainContainer = styled.div<LetterProps>`
 
 	&:hover > .normal > p,
 	&:focus > .normal > p {
-		opacity: ${props => (props.disabled ? "1" : "0")};
+		opacity: ${(props) => (props.disabled ? "1" : "0")};
 
-		transform: ${props =>
+		transform: ${(props) =>
 			props.disabled
 				? "translate3d(0%, 0px, 0px) scale(1, 1)"
 				: "translate3d(50%, 0px, 0px) scale(0, 1)"};
@@ -155,14 +156,14 @@ const ItalicLettersContainer = styled.div<LetterProps>`
 	transition: left 0.35s ease-in-out;
 	width: 100%;
 	height: 100%;
-	border-bottom: ${props =>
+	border-bottom: ${(props) =>
 		props.underline === "underline"
 			? `1px solid ${props.color || "rgb(var(--text))"}`
 			: "none"};
 
 	&:hover,
 	&:focus {
-		border-bottom: ${props =>
+		border-bottom: ${(props) =>
 			props.underline === "hover"
 				? `1px solid ${props.color || "rgb(var(--text))"}`
 				: "none"};
@@ -171,9 +172,9 @@ const ItalicLettersContainer = styled.div<LetterProps>`
 
 const NormalLetter = styled.p<LetterProps>`
 	display: inline-block;
-	font-size: ${props => (props.fontSize ? props.fontSize : "1em")};
-	font-weight: ${props => (props.fontWeight ? props.fontWeight : "400")};
-	color: ${props => (props.color ? props.color : "rgb(var(--text))")};
+	font-size: ${(props) => (props.fontSize ? props.fontSize : "1em")};
+	font-weight: ${(props) => (props.fontWeight ? props.fontWeight : "400")};
+	color: ${(props) => (props.color ? props.color : "rgb(var(--text))")};
 	margin: 0;
 	padding: 0;
 	opacity: 1;
@@ -184,9 +185,9 @@ const NormalLetter = styled.p<LetterProps>`
 
 const ItalicLetter = styled.p<LetterProps>`
 	display: inline-block;
-	font-size: ${props => (props.fontSize ? props.fontSize : "1em")};
-	font-weight: ${props => (props.fontWeight ? props.fontWeight : "400")};
-	color: ${props => (props.color ? props.color : "rgb(var(--text))")};
+	font-size: ${(props) => (props.fontSize ? props.fontSize : "1em")};
+	font-weight: ${(props) => (props.fontWeight ? props.fontWeight : "400")};
+	color: ${(props) => (props.color ? props.color : "rgb(var(--text))")};
 	margin: 0;
 	padding: 0;
 	font-style: italic;

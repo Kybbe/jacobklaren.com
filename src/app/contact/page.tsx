@@ -1,7 +1,7 @@
 "use client";
 
-import ContactForm from "@/components/Contact/ContactForm";
 import { useState } from "react";
+import ContactForm from "@/components/Contact/ContactForm";
 import styles from "./Contactpage.module.scss";
 
 export default function Contact() {
@@ -35,7 +35,7 @@ export default function Contact() {
 		}
 		if (step === 0 && (data.name === "" || data.email === "")) {
 			setStepError(
-				"Please fill out your name and email if you really want me to contact you..."
+				"Please fill out your name and email if you really want me to contact you...",
 			);
 			return false;
 		}
@@ -129,7 +129,7 @@ export default function Contact() {
 						success={success}
 						error={error}
 						stepError={stepError}
-						submitForm={e => submitForm(e)}
+						submitForm={(e) => submitForm(e)}
 						data={data}
 						setData={setData}
 					/>

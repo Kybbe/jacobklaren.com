@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./Showcase.module.scss";
 import FadingCarousel from "./About/FadingCarousel";
+import styles from "./Showcase.module.scss";
 
 interface Props {
 	title: string;
@@ -84,7 +84,7 @@ export default function Showcase({
 					<p>{description}</p>
 
 					<ul className={styles.ul}>
-						{technologies.map(technology => (
+						{technologies.map((technology) => (
 							<li className={styles.li} key={technology}>
 								{technology}
 							</li>

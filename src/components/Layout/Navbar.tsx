@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import SpinningLetterWords from "../SpinningLetterWords";
 import styles from "./Navbar.module.scss";
 import ThemeSwitcher from "./ThemeSwitcher";
-import SpinningLetterWords from "../SpinningLetterWords";
 import "react-modern-drawer/dist/index.css";
 import DrawerNavbar from "./DrawerNavbar";
 
