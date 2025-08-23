@@ -1,14 +1,23 @@
 "use client";
 
 import React, { useState } from "react";
+import { showcases, type TimelineNode } from "@/components/showcasesData";
 import styles from "./Timeline.module.scss";
-import { TimelineNode, showcases } from "../../app/showcasesData";
 
 const getYearGuides = (start: number, end: number) => {
+	if (end <= start) return [];
+	if (!start || !end) return [];
+	if (start === end)
+		return [{ year: new Date(start).getFullYear(), percent: 100 }];
+	if (typeof start !== "number" || typeof end !== "number") return [];
+
 	const guides = [];
 	const startYear = new Date(start).getFullYear();
 	const endYear = new Date(end).getFullYear();
-	for (let y = startYear + 1; y <= endYear; y + 1) {
+
+	if (startYear + 1 === endYear) return [];
+
+	for (let y = startYear + 1; y <= endYear; y++) {
 		const yearTime = new Date(y, 0, 1).getTime();
 		const percent = ((yearTime - start) / (end - start)) * 100;
 		guides.push({ year: y, percent });
@@ -29,6 +38,8 @@ export const TimelineWithScrollHandling: React.FC<TimelineProps> = ({
 	onNodeClick,
 	onNodeHover,
 }) => {
+	console.log("Rendering TimelineWithScrollHandling with nodes:", nodes);
+
 	const handleNodeClick = (id: string) => {
 		const el = document.getElementById(`showcase-${id}`);
 		if (el) {
@@ -38,7 +49,7 @@ export const TimelineWithScrollHandling: React.FC<TimelineProps> = ({
 
 	return (
 		<Timeline
-			nodes={nodes ?? showcases.map(s => ({ ...s.timeline, id: s.id }))}
+			nodes={nodes ?? showcases.map((s) => ({ ...s.timeline, id: s.id }))}
 			onNodeHover={onNodeHover || undefined}
 			onNodeClick={onNodeClick || handleNodeClick}
 		/>
@@ -52,6 +63,8 @@ export const Timeline: React.FC<TimelineProps> = ({
 }) => {
 	const [hoveredId, setHoveredId] = useState<string>("");
 
+	console.log("Rendering Timeline with nodes:", nodes);
+
 	if (!nodes || nodes.length === 0) {
 		return (
 			<div className={styles.emptyTimeline}>No timeline data available</div>
@@ -62,31 +75,32 @@ export const Timeline: React.FC<TimelineProps> = ({
 	let sortedNodes = [...nodes].sort((a, b) => a.time - b.time);
 	// Move 'Present' node(s) to end
 	const presentNodes = sortedNodes.filter(
-		n => n.span?.label && n.span.label.trim().toLowerCase().endsWith("present")
+		(n) =>
+			n.span?.label && n.span.label.trim().toLowerCase().endsWith("present"),
 	);
 	sortedNodes = sortedNodes.filter(
-		n =>
-			!(n.span?.label && n.span.label.trim().toLowerCase().endsWith("present"))
+		(n) =>
+			!(n.span?.label && n.span.label.trim().toLowerCase().endsWith("present")),
 	);
 	sortedNodes = [...sortedNodes, ...presentNodes];
 
 	// Calculate positions
 	let positions: number[] = [];
-	let timelineStart = sortedNodes[0].time;
-	let timelineEnd = sortedNodes.some(n =>
-		n.span?.label?.toLowerCase().includes("present")
+	let timelineStart = sortedNodes[0]?.time;
+	let timelineEnd = sortedNodes?.some((n) =>
+		n.span?.label?.toLowerCase().includes("present"),
 	)
 		? Date.now()
-		: sortedNodes[sortedNodes.length - 1].time;
+		: sortedNodes?.[sortedNodes?.length - 1].time;
 
 	// Start a bit before first node, end at now
 	const offset =
-		sortedNodes.length > 1
-			? (sortedNodes[1].time - sortedNodes[0].time) * 0.2
+		sortedNodes?.length > 1
+			? (sortedNodes?.[1]?.time - sortedNodes[0]?.time) * 0.2
 			: 1000 * 60 * 60 * 24 * 30;
 	timelineStart -= offset;
 	timelineEnd = Date.now();
-	positions = sortedNodes.map(n => {
+	positions = sortedNodes?.map((n) => {
 		// Position 'Present' nodes at their start time
 		const pos =
 			((n.time - timelineStart) / (timelineEnd - timelineStart)) * 100;
@@ -100,7 +114,6 @@ export const Timeline: React.FC<TimelineProps> = ({
 	return (
 		<div className={styles.timelineContainer}>
 			<div className={styles.timelineBar}>
-				{/* Year guides */}
 				{yearGuides.map((guide, idx) => (
 					<div
 						key={guide.year}
@@ -131,7 +144,7 @@ export const Timeline: React.FC<TimelineProps> = ({
 						</span>
 					</div>
 				))}
-				{/* Spans and nodes */}
+
 				{sortedNodes.map((node, i) => {
 					const hasSpan = !!node.span;
 					const spanStart = positions[i];
@@ -200,14 +213,14 @@ export const Timeline: React.FC<TimelineProps> = ({
 									{!isPresent && <div className={styles.timelineSpanEnd} />}
 								</div>
 							)}
-							{/* Node in the middle of the span, or at position if no span */}
+
 							<div
 								role="button"
 								tabIndex={0}
 								className={`${styles.timelineNode}`}
 								style={{ left: `${hasSpan ? middle : positions[i]}%` }}
 								onClick={() => onNodeClick?.(node.id)}
-								onKeyDown={e => {
+								onKeyDown={(e) => {
 									if (e.key === "Enter") {
 										onNodeClick?.(node.id);
 									}
