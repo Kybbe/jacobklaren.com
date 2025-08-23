@@ -4,7 +4,7 @@ import "./globals.css";
 import { Work_Sans } from "next/font/google";
 import { Providers } from "@/utils/ProviderFactory";
 import Footer from "@/components/Layout/Footer";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
 
 const WS = Work_Sans({ subsets: ["latin"] });
 
