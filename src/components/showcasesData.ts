@@ -20,6 +20,40 @@ export type TimelineNode = {
 
 export const showcases: ShowcaseData[] = [
 	{
+		id: "surikat",
+		title: "Surikat",
+		description:
+			"Surikat is a innovative SaaS solutions company for transportation, logistics, ports and terminals. They created and maintain a platform of solutions for managing and optimizing supply chains for customers like Stena line, DB Schenker, Kuehne nagel, P&O Ferries, etc.",
+		content: "",
+		images: [
+			"/images/projects/surikatDriverApp.jpeg",
+			"/images/projects/surikatSCAKiosks.jpeg",
+			"/images/projects/surikatStenaKiosk.jpeg",
+		],
+		technologies: [
+			"React",
+			"TypeScript",
+			"MongoDB",
+			"Nodered",
+			"RabbitMQ",
+			"MicroServices",
+			"Electron",
+			"Elastic",
+			"PowerBI",
+			"Customer integrations",
+		],
+		projectRole: "Fullstack Developer",
+		timeline: {
+			label: "Sep 2023 - Present",
+			time: new Date("2023-09-01").getTime(),
+			span: {
+				end: new Date().getTime(),
+				label: "Sep 2023 - Present",
+			},
+			company: "Surikat",
+		},
+	},
+	{
 		id: "scouterna",
 		title: "Scouterna",
 		description:
@@ -281,40 +315,6 @@ export const showcases: ShowcaseData[] = [
 			time: new Date("2022-03-01").getTime(),
 			span: { end: new Date("2022-03-01").getTime(), label: "Mar 2022" },
 			company: "Frontedge dashboard",
-		},
-	},
-	{
-		id: "surikat",
-		title: "Surikat",
-		description:
-			"Surikat is a innovative SaaS solutions company for transportation, logistics, ports and terminals. They created and maintain a platform of solutions for managing and optimizing supply chains for customers like Stena line, DB Schenker, Kuehne nagel, P&O Ferries, etc.",
-		content: "",
-		images: [
-			"/images/projects/surikatDriverApp.jpeg",
-			"/images/projects/surikatSCAKiosks.jpeg",
-			"/images/projects/surikatStenaKiosk.jpeg",
-		],
-		technologies: [
-			"React",
-			"TypeScript",
-			"MongoDB",
-			"Nodered",
-			"RabbitMQ",
-			"MicroServices",
-			"Electron",
-			"Elastic",
-			"PowerBI",
-			"Customer integrations",
-		],
-		projectRole: "Fullstack Developer",
-		timeline: {
-			label: "Sep 2023 - Present",
-			time: new Date("2023-09-01").getTime(),
-			span: {
-				end: new Date().getTime(),
-				label: "Sep 2023 - Present",
-			},
-			company: "Surikat",
 		},
 	},
 ];
