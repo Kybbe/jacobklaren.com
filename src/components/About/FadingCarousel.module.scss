@@ -1,3 +1,30 @@
+.navButtonsContainer {
+	position: absolute;
+	top: 16px;
+	right: 16px;
+	display: flex;
+	gap: 8px;
+	z-index: 10;
+}
+
+.navButton {
+	background: transparent;
+	border: none;
+	border-radius: 50%;
+	width: 32px;
+	height: 32px;
+	font-size: 1.5rem;
+	color: #333;
+	cursor: pointer;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+	transition: background 0.2s, box-shadow 0.2s;
+}
+
+.navButton:hover {
+	background: #f0f0f0;
+	box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+}
+
 .container {
   position: relative;
 	width: 100%;

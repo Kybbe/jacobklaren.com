@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import styles from "./FadingCarousel.module.scss";
 
 export default function FadingCarousel({
@@ -15,18 +15,76 @@ export default function FadingCarousel({
 	rotateInterval?: number;
 }) {
 	const [activeIndex, setActiveIndex] = useState(0);
+	const [paused, setPaused] = useState(false);
+	const pauseTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+	const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+	const resetAutoRotateAndPause = () => {
+		if (intervalRef.current) {
+			clearInterval(intervalRef.current);
+		}
+		if (pauseTimeoutRef.current) {
+			clearTimeout(pauseTimeoutRef.current);
+		}
+		setPaused(true);
+
+		const SEVEN_SECONDS = 7000;
+		pauseTimeoutRef.current = setTimeout(() => {
+			setPaused(false);
+		}, SEVEN_SECONDS);
+	};
+
+	const goToPrev = () => {
+		setActiveIndex((prev) => (prev - 1 + children.length) % children.length);
+		resetAutoRotateAndPause();
+	};
+	const goToNext = () => {
+		setActiveIndex((prev) => (prev + 1) % children.length);
+		resetAutoRotateAndPause();
+	};
 
 	useEffect(() => {
+		if (paused) {
+			if (intervalRef.current) {
+				clearInterval(intervalRef.current);
+				intervalRef.current = null;
+			}
+			return;
+		}
+
 		const autoRotate = () => {
-			setActiveIndex((activeIndex + 1) % children.length);
+			setActiveIndex((prev) => (prev + 1) % children.length);
 		};
 
-		const interval = setInterval(autoRotate, rotateInterval);
-		return () => clearInterval(interval);
-	}, [activeIndex, children.length, rotateInterval]);
+		intervalRef.current = setInterval(autoRotate, rotateInterval);
+		return () => {
+			if (intervalRef.current) {
+				clearInterval(intervalRef.current);
+				intervalRef.current = null;
+			}
+		};
+	}, [children.length, rotateInterval, paused]);
 
 	return (
 		<div style={containerStyle} className={styles.container}>
+			<div className={styles.navButtonsContainer}>
+				<button
+					type="button"
+					className={styles.navButton}
+					onClick={goToPrev}
+					aria-label="Previous image"
+				>
+					&#60;
+				</button>
+				<button
+					type="button"
+					className={styles.navButton}
+					onClick={goToNext}
+					aria-label="Next image"
+				>
+					&#62;
+				</button>
+			</div>
 			{children.map((child: ReactNode, index: number) => {
 				// Try to use child's key if available, otherwise fallback to a generated key
 				const key =
